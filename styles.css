@@ -1362,3 +1362,513 @@ svg {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   TRAVEL THEME — warm Madrid palette (terracotta · saffron · cream)
+   ========================================================================== */
+:root {
+  --bg-canvas: #faf5ee;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f4ece1;
+  --bg-glass: rgb(250 245 238 / 0.92);
+
+  --text-primary: #2a1c15;
+  --text-secondary: #54443a;
+  --text-muted: #76604f;
+
+  --brand-primary: #c2410c;
+  --brand-primary-hover: #9a3412;
+  --brand-tint: #fdebdd;
+
+  --accent-rose: #b91c1c;
+  --accent-rose-tint: #fde8e4;
+  --accent-amber: #b45309;
+  --accent-amber-tint: #fdf0d5;
+
+  --border-card: #eadccb;
+  --border-control: #a38a74;
+
+  --shadow-xs: 0 1px 2px 0 rgb(68 40 20 / 0.05);
+  --shadow-sm: 0 6px 16px -6px rgb(68 40 20 / 0.12), 0 2px 4px -1px rgb(68 40 20 / 0.05);
+  --shadow-md: 0 16px 32px -10px rgb(68 40 20 / 0.18);
+  --shadow-fab: 0 12px 26px -6px rgb(194 65 12 / 0.5);
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Category colours */
+  --cat-sight: #c2410c;
+  --cat-museum: #7c3aed;
+  --cat-food: #b45309;
+  --cat-neighborhood: #0e7490;
+  --cat-excursion: #15803d;
+}
+
+body {
+  background-color: var(--bg-canvas);
+}
+
+/* ---------- Header with skyline ---------- */
+.site-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff7ed 0%, #fdebdd 100%);
+  border-block-end: none;
+  padding-block: 0.8rem 2.6rem;
+}
+
+.skyline {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  inline-size: 100%;
+  block-size: 46px;
+  color: #f2c9a8;
+  pointer-events: none;
+}
+
+.header-inner,
+.progress-strip {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  margin: 0 0 0.1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.3rem + 1.6dvw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-block-start: 0.3rem;
+  color: var(--text-secondary);
+}
+
+.countdown-chip {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--brand-primary);
+  padding-block: 0.15rem;
+  padding-inline: 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.header-actions .btn-header {
+  background-color: rgb(255 255 255 / 0.75);
+  border-color: var(--border-card);
+}
+
+.btn-primary,
+.header-actions .btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.progress-strip {
+  margin-block-start: 0.65rem;
+}
+
+.trip-progress {
+  accent-color: var(--brand-primary);
+}
+
+/* ---------- Sticky filter panel ---------- */
+.controls-panel {
+  background-color: var(--bg-glass);
+  border-color: var(--border-card);
+}
+
+/* Day tabs: numbered itinerary stops */
+.day-tabs {
+  counter-reset: daytab;
+}
+.day-tabs li:not(:first-child) {
+  counter-increment: daytab;
+}
+.day-tab {
+  position: relative;
+  border-radius: var(--radius-md);
+  border-color: var(--border-card);
+  background-color: var(--bg-surface);
+}
+.day-tabs li:not(:first-child) .day-tab {
+  padding-inline-start: 2.6rem;
+}
+.day-tabs li:not(:first-child) .day-tab::before {
+  content: counter(daytab);
+  position: absolute;
+  inset-inline-start: 0.55rem;
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  inline-size: 1.6rem;
+  block-size: 1.6rem;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  background-color: var(--brand-tint);
+  color: var(--brand-primary);
+}
+.day-tab[aria-pressed="true"] {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+.day-tabs li:not(:first-child) .day-tab[aria-pressed="true"]::before {
+  background-color: #ffffff;
+}
+
+/* Category chips */
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-block-size: 2.25rem;
+  padding-block: 0.3rem;
+  padding-inline: 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-card);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.chip:hover {
+  border-color: var(--border-control);
+  color: var(--text-primary);
+}
+.chip[aria-pressed="true"] {
+  background-color: var(--chip-color, var(--text-primary));
+  border-color: var(--chip-color, var(--text-primary));
+  color: #ffffff;
+}
+.chip[data-category-filter="sight"] { --chip-color: var(--cat-sight); }
+.chip[data-category-filter="museum"] { --chip-color: var(--cat-museum); }
+.chip[data-category-filter="food"] { --chip-color: var(--cat-food); }
+.chip[data-category-filter="neighborhood"] { --chip-color: var(--cat-neighborhood); }
+.chip[data-category-filter="excursion"] { --chip-color: var(--cat-excursion); }
+
+@media (pointer: coarse) {
+  .chip {
+    min-block-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* chips scroll sideways like the day strip */
+  .category-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -0.65rem;
+    padding-inline: 0.65rem;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .category-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .search-input {
+    min-block-size: 2.5rem;
+  }
+}
+
+/* ---------- Day sections ---------- */
+.days-container {
+  counter-reset: day;
+}
+.day-section {
+  counter-increment: day;
+  border-color: var(--border-card);
+  border-radius: var(--radius-lg);
+}
+.day-header {
+  background: linear-gradient(90deg, #fff7ed, #ffffff 70%);
+  justify-content: flex-start;
+}
+.day-header::before {
+  content: counter(day);
+  flex-shrink: 0;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  display: grid;
+  place-content: center;
+  border-radius: var(--radius-md);
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+.day-header > div:first-child {
+  flex: 1 1 12rem;
+  min-inline-size: 0;
+}
+.day-kicker {
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+}
+.day-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Timeline ---------- */
+.timeline-list {
+  position: relative;
+  padding-inline-start: clamp(2rem, 4dvw, 2.75rem);
+}
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  inset-block: 1.5rem;
+  inset-inline-start: clamp(0.95rem, 2dvw, 1.3rem);
+  border-inline-start: 2px dashed #e3cdb6;
+}
+
+.stop-card {
+  --cat: var(--cat-sight);
+  border-inline-start: 4px solid var(--cat);
+}
+.stop-card[data-category="museum"] { --cat: var(--cat-museum); }
+.stop-card[data-category="food"] { --cat: var(--cat-food); }
+.stop-card[data-category="neighborhood"] { --cat: var(--cat-neighborhood); }
+.stop-card[data-category="excursion"] { --cat: var(--cat-excursion); }
+
+/* timeline dot */
+.stop-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 1.35rem;
+  inset-inline-start: calc(-1 * clamp(2rem, 4dvw, 2.75rem) + clamp(0.95rem, 2dvw, 1.3rem) - 6px);
+  inline-size: 14px;
+  block-size: 14px;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 3px solid var(--cat);
+  box-sizing: border-box;
+}
+.stop-card[data-visited="true"]::before {
+  background-color: var(--cat);
+}
+
+.stop-card[data-visited="true"] {
+  background-color: #f6fbf7;
+  border-color: #cfe9d7;
+  border-inline-start-color: var(--cat);
+}
+
+.time-badge {
+  background-color: var(--accent-amber-tint);
+  color: #92400e;
+}
+.category-badge {
+  background-color: color-mix(in oklab, var(--cat), white 88%);
+  color: color-mix(in oklab, var(--cat), black 25%);
+}
+.stop-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.map-link {
+  background-color: var(--brand-tint);
+  color: var(--brand-primary-hover);
+}
+.map-link:hover {
+  background-color: #fbd9c0;
+  border-color: #f4b48a;
+}
+
+.check-btn[aria-pressed="true"] {
+  background-color: #15803d;
+  border-color: #15803d;
+  color: #ffffff;
+}
+
+.highlights-box {
+  background-color: #fff7ed;
+  border-inline-start-color: var(--accent-amber);
+}
+
+.stop-card[data-next="true"] {
+  border-color: var(--brand-primary);
+  border-inline-start-color: var(--cat);
+  box-shadow: 0 0 0 3px #fbd9c0, var(--shadow-sm);
+}
+.next-badge {
+  background-color: var(--brand-primary);
+}
+
+.btn-add-day {
+  background-color: var(--brand-tint);
+  color: var(--brand-primary-hover);
+}
+
+/* ---------- Sidebar ---------- */
+.ref-card {
+  border-color: var(--border-card);
+}
+.ref-card h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.ref-icon {
+  background-color: var(--brand-tint);
+  color: var(--brand-primary);
+}
+.sidebar-mobile-toggle {
+  border-color: var(--border-card);
+}
+.sidebar-toggle-title {
+  color: var(--brand-primary-hover);
+}
+.sidebar-toggle-badge {
+  background-color: var(--brand-tint);
+  color: var(--brand-primary-hover);
+}
+
+/* Boarding pass */
+.boarding-pass {
+  position: relative;
+  margin-block: 0.6rem;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #fff7ed, #ffffff);
+  overflow: hidden;
+}
+.bp-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-block: 0.4rem;
+  padding-inline: 0.85rem;
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.bp-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.65rem;
+  padding-inline: 0.85rem;
+}
+.bp-city {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.bp-end {
+  text-align: end;
+}
+.bp-code {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.bp-time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.bp-path {
+  flex: 1;
+  position: relative;
+  display: grid;
+  place-content: center;
+  color: var(--brand-primary);
+}
+.bp-path::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 50%;
+  border-block-start: 2px dashed #e3cdb6;
+}
+.bp-path span {
+  position: relative;
+  padding-inline: 0.3rem;
+  background-color: #fffaf4;
+  font-size: 1rem;
+}
+
+.excursion-times li {
+  background-color: #fffaf4;
+}
+
+.mobile-fab {
+  background-color: var(--brand-primary);
+}
+
+.site-footer {
+  background-color: transparent;
+}
+
+:where(a:any-link, button, input, select, textarea, summary):focus-visible {
+  outline-color: var(--brand-primary);
+}
+
+@media print {
+  .skyline { display: none; }
+  .site-header { background: none; padding-block-end: 0.5rem; }
+}
+
+/* Progress bar: explicit styling (accent-color is ignored for <progress> in some browsers) */
+.trip-progress {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  block-size: 0.45rem;
+  border-radius: var(--radius-pill);
+  background-color: rgb(194 65 12 / 0.15);
+  overflow: hidden;
+}
+.trip-progress::-webkit-progress-bar {
+  background-color: rgb(194 65 12 / 0.15);
+  border-radius: var(--radius-pill);
+}
+.trip-progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #f59e0b, var(--brand-primary));
+  border-radius: var(--radius-pill);
+}
+.trip-progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #f59e0b, var(--brand-primary));
+  border-radius: var(--radius-pill);
+}

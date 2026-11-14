@@ -7,12 +7,15 @@
   <meta name="color-scheme" content="light">
   <title>Ταξίδι στη Μαδρίτη (24–29 Νοεμβρίου) | Οδηγός & Πρόγραμμα</title>
   <meta name="description" content="Πρόγραμμα ταξιδιού στη Μαδρίτη, 24–29 Νοεμβρίου: ημέρες, στάσεις, χάρτες, εκδρομές.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#fff7ed">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Μαδρίτη">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,8 +24,9 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="brand">
-        <h1 id="main-title" class="hero-title" tabindex="-1">Μαδρίτη <span class="hero-dates">24–29 Νοε</span></h1>
-        <p class="hero-meta">6 ημέρες · Τολέδο · Άβιλα · Σεγόβια</p>
+        <p class="hero-eyebrow"><span aria-hidden="true">✈</span> ATH → MAD · 24–29 Νοε</p>
+        <h1 id="main-title" class="hero-title" tabindex="-1">Μαδρίτη</h1>
+        <p class="hero-meta"><span id="trip-countdown" class="countdown-chip" hidden></span> 6 ημέρες · Τολέδο · Άβιλα · Σεγόβια</p>
       </div>
 
       <div class="header-actions">
@@ -56,6 +60,11 @@
       <div id="live-status" class="visually-hidden" aria-live="polite"></div>
       <button type="button" id="reset-progress-btn" class="btn-text">Μηδενισμός</button>
     </div>
+
+    <!-- Stylised Madrid skyline: Metrópolis dome, Puerta de Alcalá, Palacio Real, Almudena, Torre de Madrid -->
+    <svg class="skyline" aria-hidden="true" viewBox="0 0 1200 70" preserveAspectRatio="xMidYMax slice">
+      <path fill="currentColor" d="M0 70V58h40v-6h18v6h30V44h14v-8h6v8h14v26zm150 0V50h12V34c0-8 6-14 13-16v-6h4v6c7 2 13 8 13 16v16h12v20zm90 0V52h60v18h-8V60a10 10 0 0 0-20 0v10h-4V60a10 10 0 0 0-20 0v10zm0-18v-6h60v6zm90 18V46h20V36h8v-8h4v8h8v10h50V36h8v-8h4v8h8v10h20v24zm170 0V40h10V28c0-10 8-18 18-20V0h4v8c10 2 18 10 18 20v12h10v30zm90 0V50h30V18h22v-6h6v6h22v32h20v20zm150 0V54h24V30h10V20h10v10h10v24h30v16zm130 0V56h50V42h30v14h40v14zm150 0V48h16V38h30v10h16v22zm80 0V58h60v12z"/>
+    </svg>
   </header>
 
   <div class="page-shell">
@@ -87,16 +96,22 @@
               <p class="ref-subtitle">Θέσεις 26A &amp; 26B · Κωδικοί στην Κάρτα Πρόσβασης</p>
             </div>
           </div>
-          <ul class="excursion-times">
-            <li>
-              <span><strong>Τρι 24/11</strong> · GQ920<br>Αθήνα 10:30 → Μαδρίτη</span>
-              <strong>13:20</strong>
-            </li>
-            <li>
-              <span><strong>Κυρ 29/11</strong> · GQ921<br>Μαδρίτη 14:20 → Αθήνα</span>
-              <strong>18:45</strong>
-            </li>
-          </ul>
+          <div class="boarding-pass">
+            <div class="bp-head"><span>Πήγαινε · Τρι 24/11</span><span>GQ920</span></div>
+            <div class="bp-route">
+              <div class="bp-city"><span class="bp-code">ATH</span><span class="bp-time">10:30</span></div>
+              <div class="bp-path" aria-hidden="true"><span>✈</span></div>
+              <div class="bp-city bp-end"><span class="bp-code">MAD</span><span class="bp-time">13:20</span></div>
+            </div>
+          </div>
+          <div class="boarding-pass">
+            <div class="bp-head"><span>Επιστροφή · Κυρ 29/11</span><span>GQ921</span></div>
+            <div class="bp-route">
+              <div class="bp-city"><span class="bp-code">MAD</span><span class="bp-time">14:20</span></div>
+              <div class="bp-path" aria-hidden="true"><span>✈</span></div>
+              <div class="bp-city bp-end"><span class="bp-code">ATH</span><span class="bp-time">18:45</span></div>
+            </div>
+          </div>
           <p class="ref-body">
             <strong>Αποσκευές:</strong> μόνο χειραποσκευή 8 kg + 1 προσωπικό αντικείμενο ο καθένας (προσοχή στα ψώνια).<br>
             <strong>Online check-in:</strong> ανοίγει 48 ώρες πριν και κλείνει 3 ώρες πριν. Για την πήγαινε από 22/11 10:30, για την επιστροφή από 27/11 14:20 έως 29/11 11:20.<br>
@@ -264,18 +279,18 @@
               <input type="search" id="search-stops" class="search-input" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Αναζήτηση…">
             </div>
 
-            <label for="category-filter" class="visually-hidden">Φίλτρο κατηγορίας</label>
-            <select id="category-filter" class="filter-select">
-              <option value="all">Όλες οι κατηγορίες</option>
-              <option value="sight">Αξιοθέατα &amp; Πλατείες</option>
-              <option value="museum">Μουσεία &amp; Τέχνη</option>
-              <option value="excursion">Ημερήσιες Εκδρομές</option>
-              <option value="neighborhood">Συνοικίες &amp; Βραδινή Βόλτα</option>
-              <option value="food">Γαστρονομία &amp; Tapas</option>
-              <option value="unvisited">Μόνο όσα δεν έχω επισκεφθεί</option>
-            </select>
           </div>
         </search>
+
+        <div class="category-chips" role="group" aria-label="Φίλτρο κατηγορίας">
+          <button type="button" class="chip" data-category-filter="all" aria-pressed="true">Όλα</button>
+          <button type="button" class="chip" data-category-filter="sight" aria-pressed="false"><span aria-hidden="true">🏛️</span> Αξιοθέατα</button>
+          <button type="button" class="chip" data-category-filter="museum" aria-pressed="false"><span aria-hidden="true">🎨</span> Μουσεία</button>
+          <button type="button" class="chip" data-category-filter="food" aria-pressed="false"><span aria-hidden="true">🍷</span> Φαγητό</button>
+          <button type="button" class="chip" data-category-filter="neighborhood" aria-pressed="false"><span aria-hidden="true">🌆</span> Γειτονιές</button>
+          <button type="button" class="chip" data-category-filter="excursion" aria-pressed="false"><span aria-hidden="true">🚌</span> Εκδρομές</button>
+          <button type="button" class="chip" data-category-filter="unvisited" aria-pressed="false"><span aria-hidden="true">◯</span> Δεν τα είδα</button>
+        </div>
       </div>
 
       <!-- Ημέρες Ταξιδιού -->

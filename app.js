@@ -19,7 +19,8 @@
   const daySections = Array.from(document.querySelectorAll('.day-section'));
 
   const searchInput = document.getElementById('search-stops');
-  const categorySelect = document.getElementById('category-filter');
+  const categoryChips = Array.from(document.querySelectorAll('[data-category-filter]'));
+  let activeCategory = 'all';
   const emptyState = document.getElementById('empty-filter-state');
   const clearFiltersBtn = document.getElementById('clear-filters-btn');
 
@@ -398,7 +399,7 @@
   // Filter days & stops based on active tabs, search query, and category
   function applyFilters() {
     const query = normalizeText((searchInput?.value || '').trim());
-    const category = categorySelect?.value || 'all';
+    const category = activeCategory;
     let visibleStopsCount = 0;
 
     daySections.forEach((section) => {
@@ -511,11 +512,22 @@
     });
   }
 
-  if (categorySelect) {
-    categorySelect.addEventListener('change', () => {
-      applyFilters();
+  function setCategory(value) {
+    activeCategory = value || 'all';
+    categoryChips.forEach((chip) => {
+      chip.setAttribute('aria-pressed', chip.getAttribute('data-category-filter') === activeCategory ? 'true' : 'false');
     });
   }
+
+  categoryChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const value = chip.getAttribute('data-category-filter');
+      // Tapping the active chip again returns to "Όλα"
+      setCategory(value === activeCategory ? 'all' : value);
+      applyFilters();
+    });
+  });
+
 
   if (clearFiltersBtn) {
     clearFiltersBtn.addEventListener('click', () => {
@@ -524,7 +536,7 @@
         t.setAttribute('aria-pressed', t.getAttribute('data-day-filter') === 'all' ? 'true' : 'false');
       });
       if (searchInput) searchInput.value = '';
-      if (categorySelect) categorySelect.value = 'all';
+      setCategory('all');
       applyFilters();
       announce('Τα φίλτρα επαναφέρθηκαν.');
     });
@@ -703,6 +715,26 @@
     }
   }
 
+  // Header chip: "Σε 10 ημέρες" before, "Ημέρα 2 από 6" during the trip
+  function renderCountdown() {
+    const chip = document.getElementById('trip-countdown');
+    if (!chip) return;
+    const ids = Object.keys(TRIP_DATES);
+    if (todayDayId) {
+      chip.textContent = `Ημέρα ${ids.indexOf(todayDayId) + 1} από ${ids.length}`;
+      chip.hidden = false;
+      return;
+    }
+    const start = new Date(`${TRIP_DATES['day-1']}T00:00:00`);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const days = Math.round((start - today) / 86400000);
+    if (days > 0) {
+      chip.textContent = days === 1 ? 'Αύριο φεύγουμε!' : `Σε ${days} ημέρες`;
+      chip.hidden = false;
+    }
+  }
+
   function applyTodayDefaults() {
     if (!todayDayId) return;
     const tab = dayTabs.find((t) => t.getAttribute('data-day-filter') === todayDayId);
@@ -831,6 +863,7 @@
   loadState();
   renderSavedCustomStops();
   applyTodayDefaults();
+  renderCountdown();
   syncVisitedUI();
   syncNotesUI();
   applyFilters();

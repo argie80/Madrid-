@@ -2,7 +2,7 @@
 // Strategy: serve from cache instantly, refresh the cache from the network in
 // the background, so the page works in the metro / without roaming data and
 // still picks up updates the next time it is opened online.
-const CACHE = 'madrid-trip-v1';
+const CACHE = 'madrid-trip-v2';
 const ASSETS = [
   './',
   'index.html',

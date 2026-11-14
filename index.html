@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Force clean light/white theme as requested -->
+  <meta name="color-scheme" content="light">
+  <title>Ταξίδι στη Μαδρίτη (24–29 Νοεμβρίου) | Οδηγός & Πρόγραμμα</title>
+  <meta name="description" content="Πρόγραμμα ταξιδιού στη Μαδρίτη, 24–29 Νοεμβρίου: ημέρες, στάσεις, χάρτες, εκδρομές.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Μαδρίτη">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-title" class="skip-link visually-hidden">Μετάβαση στο κύριο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1 id="main-title" class="hero-title" tabindex="-1">Μαδρίτη <span class="hero-dates">24–29 Νοε</span></h1>
+        <p class="hero-meta">6 ημέρες · Τολέδο · Άβιλα · Σεγόβια</p>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" id="open-quick-guide-btn" class="btn btn-header" aria-label="Κάρτα Πρόσβασης: πτήσεις, ξενοδοχείο, εκδρομές">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><line x1="7" y1="10" x2="17" y2="10"/><line x1="7" y1="14" x2="13" y2="14"/>
+          </svg>
+          <span class="btn-label">Κάρτα Πρόσβασης</span>
+        </button>
+        <button type="button" id="print-btn" class="btn btn-header" aria-label="Εκτύπωση ή αποθήκευση ως PDF">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          <span class="btn-label">PDF</span>
+        </button>
+        <button type="button" id="open-add-activity-btn" class="btn btn-primary btn-header btn-add-desktop">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          <span class="btn-label">Νέα Δραστηριότητα</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="progress-strip">
+      <label for="trip-progress-bar" class="visually-hidden">Πρόοδος επισκέψεων</label>
+      <progress id="trip-progress-bar" class="trip-progress" value="0" max="19" style="--brand-hue: 220;"></progress>
+      <span id="progress-count-text" class="progress-count">0 / 19 στάσεις</span>
+      <div id="live-status" class="visually-hidden" aria-live="polite"></div>
+      <button type="button" id="reset-progress-btn" class="btn-text">Μηδενισμός</button>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <!-- Sidebar: Βάση Διαμονής & Σημεία Αναφοράς (Ανεξάρτητο Scroll σε Desktop, Πτυσσόμενο/Οριζόντιο σε Mobile) -->
+    <aside class="reference-sidebar" aria-label="Βάση διαμονής και σημεία αναφοράς">
+      <div class="sidebar-header-mobile">
+        <button type="button" id="toggle-sidebar-mobile-btn" class="sidebar-mobile-toggle" aria-expanded="false" aria-controls="sidebar-cards-wrapper">
+          <span class="sidebar-toggle-title">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
+            </svg>
+            Πτήσεις, Ξενοδοχείο, Μετρό &amp; Εκδρομές
+          </span>
+          <span class="sidebar-toggle-badge" id="sidebar-toggle-label">Εμφάνιση</span>
+        </button>
+      </div>
+
+      <div id="sidebar-cards-wrapper" class="sidebar-cards-wrapper">
+        <!-- Πτήσεις -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Πτήσεις SKY express</h2>
+              <p class="ref-subtitle">Θέσεις 26A &amp; 26B · Κωδικοί στην Κάρτα Πρόσβασης</p>
+            </div>
+          </div>
+          <ul class="excursion-times">
+            <li>
+              <span><strong>Τρι 24/11</strong> · GQ920<br>Αθήνα 10:30 → Μαδρίτη</span>
+              <strong>13:20</strong>
+            </li>
+            <li>
+              <span><strong>Κυρ 29/11</strong> · GQ921<br>Μαδρίτη 14:20 → Αθήνα</span>
+              <strong>18:45</strong>
+            </li>
+          </ul>
+          <p class="ref-body">
+            <strong>Αποσκευές:</strong> μόνο χειραποσκευή 8 kg + 1 προσωπικό αντικείμενο ο καθένας (προσοχή στα ψώνια).<br>
+            <strong>Online check-in:</strong> ανοίγει 48 ώρες πριν και κλείνει 3 ώρες πριν. Για την πήγαινε από 22/11 10:30, για την επιστροφή από 27/11 14:20 έως 29/11 11:20.<br>
+            <strong>Πύλη:</strong> τουλάχιστον 20' πριν την αναχώρηση. Ώρες τοπικές (η Μαδρίτη είναι 1 ώρα πίσω από την Ελλάδα).
+          </p>
+        </section>
+
+        <!-- Ξενοδοχείο -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Dear Hotel Madrid</h2>
+              <p class="ref-subtitle">Gran Vía, 80 — Στάση Μετρό: Plaza de España</p>
+            </div>
+          </div>
+          <p class="ref-body">
+            Μπουτίκ ξενοδοχείο στο δυτικό άκρο της Gran Vía. Διαθέτει πανοραμική βεράντα 360° στον 14ο όροφο (<span lang="en">Nice to Meet You</span>) με θέα στο Βασιλικό Παλάτι.
+          </p>
+          <ul class="excursion-times">
+            <li><span>Check-in</span><strong>Τρι 24/11</strong></li>
+            <li><span>Check-out</span><strong>Κυρ 29/11</strong></li>
+            <li><span>Τηλέφωνο</span><strong><a href="tel:+34914123200">+34 914 123 200</a></strong></li>
+          </ul>
+          <p class="ref-body">
+            Deluxe Double, 2 ενήλικες · <strong>Πρωινό &amp; Wi-Fi περιλαμβάνονται</strong>. Στο check-in χρειάζεται ταυτότητα στο όνομα της κράτησης (κύρια επισκέπτρια). Για ταξί: <span lang="es"><em>«Gran Vía 80, Dear Hotel, por favor»</em></span>.
+          </p>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Dear+Hotel+Madrid&amp;query_place_id=ChIJx6DI12QoQg0RyQLwL6TfU4M" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Χάρτης: Dear Hotel Madrid
+          </a>
+        </section>
+
+        <!-- Πρόσβαση από Αεροδρόμιο Barajas -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Πρόσβαση από Αεροδρόμιο Barajas</h2>
+              <p class="ref-subtitle">Μετρό απευθείας στην είσοδο του ξενοδοχείου</p>
+            </div>
+          </div>
+          <div class="metro-route">
+            <div class="metro-step">
+              <span class="metro-line-pill metro-l8">Γραμμή 8 (Ροζ)</span>
+              <span>έως <strong>Nuevos Ministerios</strong></span>
+            </div>
+            <div class="metro-step">
+              <span class="metro-line-pill metro-l10">Γραμμή 10 (Σκούρο Μπλε)</span>
+              <span>έως <strong>Plaza de España</strong> (ακριβώς μπροστά στην είσοδο)</span>
+            </div>
+          </div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Aeropuerto+Adolfo+Su%C3%A1rez+Madrid-Barajas&amp;query_place_id=ChIJAQAAANAxQg0R786FD-old24" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Χάρτης: Αεροδρόμιο Barajas
+          </a>
+        </section>
+
+        <!-- Σημείο Εκκίνησης Εκδρομών -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon gold" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Σημείο Εκκίνησης Εκδρομών (<span lang="en">Fun and Tickets</span>)</h2>
+              <p class="ref-subtitle">Calle de San Bernardo, 7 (7' με τα πόδια)</p>
+            </div>
+          </div>
+          <p class="ref-body">
+            Απέχει μόλις 7 λεπτά περπάτημα από το ξενοδοχείο. Από εδώ ξεκινούν και επιστρέφουν και οι δύο ημερήσιες εκδρομές σας:
+          </p>
+          <ul class="excursion-times">
+            <li>
+              <span>Τετάρτη 25/11 — <strong>Τολέδο</strong></span>
+              <strong>08:45</strong>
+            </li>
+            <li>
+              <span>Παρασκευή 27/11 — <strong>Άβιλα &amp; Σεγόβια</strong></span>
+              <strong>08:15</strong>
+            </li>
+          </ul>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+San+Bernardo+7+Madrid&amp;query_place_id=ChIJ2bVwY3soQg0RMjx-UHronyI" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Χάρτης: Fun and Tickets (San Bernardo, 7)
+          </a>
+        </section>
+      </div>
+    </aside>
+
+    <!-- Κύριο Περιεχόμενο: Πρόγραμμα ανά Ημέρα -->
+    <main class="itinerary-main">
+      <!-- Φίλτρα Ημέρας & Αναζήτηση -->
+      <div class="controls-panel">
+        <nav aria-label="Επιλογή ημέρας ταξιδιού" class="day-tabs-nav">
+          <ul class="day-tabs" role="list">
+            <li>
+              <button type="button" class="day-tab" data-day-filter="all" aria-pressed="true">
+                <span class="day-tab-date">24–29 Νοε</span>
+                <span class="day-tab-name">Όλες οι ημέρες</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="day-tab" data-day-filter="day-1" aria-pressed="false">
+                <span class="day-tab-date">Τρίτη 24/11</span>
+                <span class="day-tab-name">Ιστορικό Κέντρο</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="day-tab" data-day-filter="day-2" aria-pressed="false">
+                <span class="day-tab-date">Τετάρτη 25/11</span>
+                <span class="day-tab-name">Τολέδο &amp; Malasaña</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="day-tab" data-day-filter="day-3" aria-pressed="false">
+                <span class="day-tab-date">Πέμπτη 26/11</span>
+                <span class="day-tab-name">Prado, Retiro &amp; Salamanca</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="day-tab" data-day-filter="day-4" aria-pressed="false">
+                <span class="day-tab-date">Παρασκευή 27/11</span>
+                <span class="day-tab-name">Άβιλα, Σεγόβια &amp; Chueca</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="day-tab" data-day-filter="day-5" aria-pressed="false">
+                <span class="day-tab-date">Σάββατο 28/11</span>
+                <span class="day-tab-name">Reina Sofía, Παλάτι &amp; La Latina</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="day-tab" data-day-filter="day-6" aria-pressed="false">
+                <span class="day-tab-date">Κυριακή 29/11</span>
+                <span class="day-tab-name">El Rastro &amp; Αναχώρηση</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <search>
+          <div class="search-bar-row">
+            <div class="search-input-wrap">
+              <label for="search-stops" class="visually-hidden">Αναζήτηση αξιοθέατου, γειτονιάς ή δραστηριότητας</label>
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="search" id="search-stops" class="search-input" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Αναζήτηση…">
+            </div>
+
+            <label for="category-filter" class="visually-hidden">Φίλτρο κατηγορίας</label>
+            <select id="category-filter" class="filter-select">
+              <option value="all">Όλες οι κατηγορίες</option>
+              <option value="sight">Αξιοθέατα &amp; Πλατείες</option>
+              <option value="museum">Μουσεία &amp; Τέχνη</option>
+              <option value="excursion">Ημερήσιες Εκδρομές</option>
+              <option value="neighborhood">Συνοικίες &amp; Βραδινή Βόλτα</option>
+              <option value="food">Γαστρονομία &amp; Tapas</option>
+              <option value="unvisited">Μόνο όσα δεν έχω επισκεφθεί</option>
+            </select>
+          </div>
+        </search>
+      </div>
+
+      <!-- Ημέρες Ταξιδιού -->
+      <div class="days-container" id="days-container">
+
+        <!-- ================================================================
+             ΗΜΕΡΑ 1: Τρίτη 24 Νοεμβρίου
+             ================================================================ -->
+        <article class="day-section" id="day-1" data-day="day-1">
+          <header class="day-header">
+            <div>
+              <div class="day-kicker">Ημέρα 1 · Τρίτη 24 Νοεμβρίου</div>
+              <h2 class="day-title">Πρώτη Επαφή με το Ιστορικό Κέντρο</h2>
+            </div>
+            <div class="day-header-actions">
+              <span class="pill-badge" data-day-count="day-1">5 Στάσεις</span>
+              <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-1" aria-label="Προσθήκη δραστηριότητας στην Τρίτη 24 Νοεμβρίου">
+                + Προσθήκη
+              </button>
+            </div>
+          </header>
+
+          <div class="highlights-box">
+            <strong>Άφιξη:</strong> προσγείωση <strong>13:20</strong> (GQ920) στο Barajas → Μετρό Γραμμή 8 → Nuevos Ministerios → Γραμμή 10 → Plaza de España (~45–50'). Check-in στο ξενοδοχείο γύρω στις <strong>15:00</strong> και ο περίπατος ξεκινά περίπου <strong>16:00</strong>. Ο ήλιος δύει περίπου στις 17:50.
+          </div>
+
+          <ol class="timeline-list" role="list" data-timeline-for="day-1">
+            <!-- 1. Gran Vía -->
+            <li class="stop-card" data-stop-id="gran-via" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">~16:00 · Αφετηρία Περιπάτου</span>
+                      <span class="category-badge">Λεωφόρος &amp; Αρχιτεκτονική</span>
+                    </div>
+                    <h3 class="stop-title">Gran Vía</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η κεντρική λεωφόρος της πόλης, γνωστή για την αρχιτεκτονική των αρχών του 20ού αιώνα, τα θέατρα και τα μεγάλα εμπορικά καταστήματα.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Gran+V%C3%ADa+Madrid&amp;query_place_id=ChIJM9-jbX0oQg0RIV1MiW1AGeE" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Gran Vía
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="gran-via" aria-pressed="false" aria-label="Το είδα: Gran Vía">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Gran Vía</summary>
+                  <label for="note-gran-via" class="visually-hidden">Σημειώσεις για Gran Vía</label>
+                  <textarea id="note-gran-via" class="note-textarea" data-note-for="gran-via" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 2. Puerta del Sol -->
+            <li class="stop-card" data-stop-id="puerta-del-sol" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">Ιστορικό Κέντρο</span>
+                      <span class="category-badge">Πλατεία &amp; Ορόσημο</span>
+                    </div>
+                    <h3 class="stop-title">Puerta del Sol</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η καρδιά της Μαδρίτης και το «Χιλιόμετρο Μηδέν» όλων των δρόμων της Ισπανίας, με το εμβληματικό άγαλμα της Αρκούδας και της Κουμαριάς (<span lang="es">El Oso y el Madroño</span>).
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Puerta+del+Sol+Madrid&amp;query_place_id=ChIJx319oIAoQg0RecYd2lfuSmk" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Puerta del Sol
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="puerta-del-sol" aria-pressed="false" aria-label="Το είδα: Puerta del Sol">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Puerta del Sol</summary>
+                  <label for="note-puerta-del-sol" class="visually-hidden">Σημειώσεις για Puerta del Sol</label>
+                  <textarea id="note-puerta-del-sol" class="note-textarea" data-note-for="puerta-del-sol" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 3. Plaza Mayor -->
+            <li class="stop-card" data-stop-id="plaza-mayor" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">Ιστορικό Κέντρο</span>
+                      <span class="category-badge">Πλατεία 17ου αιώνα</span>
+                    </div>
+                    <h3 class="stop-title">Plaza Mayor</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η επιβλητική κλειστή πλατεία του 17ου αιώνα με τις 237 μπαλκονόπορτες και τις ιστορικές αψίδες.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+Mayor+Madrid&amp;query_place_id=ChIJZX56134oQg0RHBgRAVQ8pkk" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Plaza Mayor
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="plaza-mayor" aria-pressed="false" aria-label="Το είδα: Plaza Mayor">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Plaza Mayor</summary>
+                  <label for="note-plaza-mayor" class="visually-hidden">Σημειώσεις για Plaza Mayor</label>
+                  <textarea id="note-plaza-mayor" class="note-textarea" data-note-for="plaza-mayor" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 4. Mercado de San Miguel -->
+            <li class="stop-card" data-stop-id="mercado-san-miguel" data-category="food">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">19:30</span>
+                      <span class="category-badge">Γαστρονομία &amp; Tapas</span>
+                    </div>
+                    <h3 class="stop-title">Mercado de San Miguel</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Κλειστή σιδηροκατασκευαστική αγορά του 1916 δίπλα στην Plaza Mayor, ιδανική για δοκιμή ισπανικών <span lang="es">tapas</span>, θαλασσινών, <span lang="es">jamón ibérico</span> και τοπικών κρασιών.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mercado+de+San+Miguel+Madrid&amp;query_place_id=ChIJLW4ZIXkoQg0R6JDRTdPmLxY" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Mercado de San Miguel
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="mercado-san-miguel" aria-pressed="false" aria-label="Το είδα: Mercado de San Miguel">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Mercado de San Miguel</summary>
+                  <label for="note-mercado-san-miguel" class="visually-hidden">Σημειώσεις για Mercado de San Miguel</label>
+                  <textarea id="note-mercado-san-miguel" class="note-textarea" data-note-for="mercado-san-miguel" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 5. Chocolatería San Ginés -->
+            <li class="stop-card" data-stop-id="san-gines" data-category="food">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">21:30</span>
+                      <span class="category-badge">Ιστορικό Καφέ &amp; Churros</span>
+                    </div>
+                    <h3 class="stop-title">Chocolatería San Ginés</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Ιστορικό καφέ που λειτουργεί αδιάλειπτα από το 1894 σε ένα γραφικό σοκάκι κοντά στη Sol, διάσημο για τα παραδοσιακά <span lang="es">churros con chocolate</span>.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Chocolater%C3%ADa+San+Gin%C3%A9s+Madrid&amp;query_place_id=ChIJHeRevn4oQg0R1cMSLDTWlWg" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Chocolatería San Ginés
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="san-gines" aria-pressed="false" aria-label="Το είδα: Chocolatería San Ginés">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Chocolatería San Ginés</summary>
+                  <label for="note-san-gines" class="visually-hidden">Σημειώσεις για Chocolatería San Ginés</label>
+                  <textarea id="note-san-gines" class="note-textarea" data-note-for="san-gines" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <!-- ================================================================
+             ΗΜΕΡΑ 2: Τετάρτη 25 Νοεμβρίου
+             ================================================================ -->
+        <article class="day-section" id="day-2" data-day="day-2">
+          <header class="day-header">
+            <div>
+              <div class="day-kicker">Ημέρα 2 · Τετάρτη 25 Νοεμβρίου</div>
+              <h2 class="day-title">Ολοήμερη Εκδρομή στο Τολέδο &amp; Βράδυ στη Malasaña</h2>
+            </div>
+            <div class="day-header-actions">
+              <span class="pill-badge" data-day-count="day-2">2 Στάσεις</span>
+              <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-2" aria-label="Προσθήκη δραστηριότητας στην Τετάρτη 25 Νοεμβρίου">
+                + Προσθήκη
+              </button>
+            </div>
+          </header>
+
+          <ol class="timeline-list" role="list" data-timeline-for="day-2">
+            <!-- 1. Τολέδο -->
+            <li class="stop-card" data-stop-id="toledo" data-category="excursion">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">Αναχώρηση 08:45 από San Bernardo 7</span>
+                      <span class="category-badge">Ημερήσια Εκδρομή · UNESCO</span>
+                    </div>
+                    <h3 class="stop-title">Τολέδο (Toledo)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Γνωστό ως η «Πόλη των Τριών Πολιτισμών» (χριστιανικού, εβραϊκού και μουσουλμανικού) και Μνημείο Παγκόσμιας Κληρονομιάς της UNESCO, χτισμένο πάνω σε βραχώδη λόφο που περιβάλλεται από τον ποταμό Τάγο.
+                </p>
+                <div class="highlights-box">
+                  <strong>Κύρια σημεία επίσκεψης:</strong> Η Εκκλησία του Santo Tomé (όπου εκτίθεται το αριστούργημα του Ελ Γκρέκο «Η Ταφή του Κόμη Οργκάθ»), η Συναγωγή της Santa María la Blanca, ο επιβλητικός γοτθικός Καθεδρικός Ναός (Primada) και το σημείο πανοραμικής θέας Mirador del Valle.
+                </div>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Toledo%2C+Espa%C3%B1a&amp;query_place_id=ChIJkwyrlqwLag0RiQIn2fdIshM" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Τολέδο (Toledo)
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+San+Bernardo+7+Madrid&amp;query_place_id=ChIJ2bVwY3soQg0RMjx-UHronyI" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                      Αφετηρία: San Bernardo, 7
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="toledo" aria-pressed="false" aria-label="Το είδα: Τολέδο">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Τολέδο</summary>
+                  <label for="note-toledo" class="visually-hidden">Σημειώσεις για Τολέδο</label>
+                  <textarea id="note-toledo" class="note-textarea" data-note-for="toledo" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 2. Malasaña -->
+            <li class="stop-card" data-stop-id="malasana" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">20:30</span>
+                      <span class="category-badge">Μποέμ Γειτονιά (5' από ξενοδοχείο)</span>
+                    </div>
+                    <h3 class="stop-title">Malasaña</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Ακριβώς βόρεια του ξενοδοχείου (5' με τα πόδια). Η μποέμ και εναλλακτική γειτονιά της Μαδρίτης με μικρές πλατείες (όπως η Plaza del Dos de Mayo), ατμοσφαιρικά μπιστρό και νεανική ενέργεια.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Malasa%C3%B1a+Madrid&amp;query_place_id=ChIJ8ek8h2QoQg0RTBJi44fo6qA" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Malasaña
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="malasana" aria-pressed="false" aria-label="Το είδα: Malasaña">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Malasaña</summary>
+                  <label for="note-malasana" class="visually-hidden">Σημειώσεις για Malasaña</label>
+                  <textarea id="note-malasana" class="note-textarea" data-note-for="malasana" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <!-- ================================================================
+             ΗΜΕΡΑ 3: Πέμπτη 26 Νοεμβρίου
+             ================================================================ -->
+        <article class="day-section" id="day-3" data-day="day-3">
+          <header class="day-header">
+            <div>
+              <div class="day-kicker">Ημέρα 3 · Πέμπτη 26 Νοεμβρίου</div>
+              <h2 class="day-title">Τέχνη, Πάρκα &amp; Αριστοκρατικές Συνοικίες</h2>
+            </div>
+            <div class="day-header-actions">
+              <span class="pill-badge" data-day-count="day-3">4 Στάσεις</span>
+              <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-3" aria-label="Προσθήκη δραστηριότητας στην Πέμπτη 26 Νοεμβρίου">
+                + Προσθήκη
+              </button>
+            </div>
+          </header>
+
+          <ol class="timeline-list" role="list" data-timeline-for="day-3">
+            <!-- 1. Μουσείο Πράδο -->
+            <li class="stop-card" data-stop-id="prado" data-category="museum">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">10:00</span>
+                      <span class="category-badge">Μουσείο Τέχνης</span>
+                    </div>
+                    <h3 class="stop-title">Μουσείο Πράδο (Museo Nacional del Prado)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Ένα από τα σημαντικότερα μουσεία τέχνης στον κόσμο. Φιλοξενεί την κορυφαία συλλογή ισπανικής ζωγραφικής, με εμβληματικά έργα των Βελάσκεθ (<span lang="es">Las Meninas</span>), Γκόγια (Η 3η Μαΐου 1808, Οι Μαύροι Πίνακες), Ελ Γκρέκο (πάνω από 30 έργα), καθώς και αριστουργήματα των Ιερώνυμου Μπος, Ρούμπενς και Τιτσιάνο.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Museo+del+Prado+Madrid&amp;query_place_id=ChIJ7aLYZp0oQg0RWoitk33wlBA" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Μουσείο Πράδο
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="prado" aria-pressed="false" aria-label="Το είδα: Μουσείο Πράδο">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Μουσείο Πράδο</summary>
+                  <label for="note-prado" class="visually-hidden">Σημειώσεις για Μουσείο Πράδο</label>
+                  <textarea id="note-prado" class="note-textarea" data-note-for="prado" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 2. Πάρκο Ελ Ρετίρο & Puerta de Alcalá -->
+            <li class="stop-card" data-stop-id="retiro" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">13:00</span>
+                      <span class="category-badge">Βασιλικός Κήπος &amp; Μνημείο</span>
+                    </div>
+                    <h3 class="stop-title">Πάρκο Ελ Ρετίρο (Parque de El Retiro) &amp; Puerta de Alcalá</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Ο ιστορικός βασιλικός κήπος 1.250 στρεμμάτων ακριβώς πίσω από το Prado. Ξεχωρίζουν η μεγάλη τεχνητή λίμνη με το μνημείο του Αλφόνσου ΙΒ', το γυάλινο περίπτερο <span lang="es">Palacio de Cristal</span> και στη βορειοδυτική έξοδο η μνημειακή αψίδα <strong>Puerta de Alcalá</strong>.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Parque+de+El+Retiro+Madrid&amp;query_place_id=ChIJe4IR9Z8oQg0RrqMktRYnbJ4" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Πάρκο Ελ Ρετίρο
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Puerta+de+Alcal%C3%A1+Madrid&amp;query_place_id=ChIJJ1KGSpooQg0R8YZKFDqLJ5g" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Puerta de Alcalá
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="retiro" aria-pressed="false" aria-label="Το είδα: Πάρκο Ελ Ρετίρο">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Πάρκο Ελ Ρετίρο</summary>
+                  <label for="note-retiro" class="visually-hidden">Σημειώσεις για Πάρκο Ελ Ρετίρο</label>
+                  <textarea id="note-retiro" class="note-textarea" data-note-for="retiro" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 3. Συνοικία Salamanca -->
+            <li class="stop-card" data-stop-id="salamanca" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">15:30</span>
+                      <span class="category-badge">Αριστοκρατική Συνοικία</span>
+                    </div>
+                    <h3 class="stop-title">Συνοικία Salamanca</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η πιο κομψή και αριστοκρατική περιοχή της Μαδρίτης (γύρω από την Calle de Serrano), με φαρδιές λεωφόρους, κτίρια του 19ου αιώνα και προσεγμένα εστιατόρια.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Barrio+de+Salamanca+Madrid&amp;query_place_id=ChIJJ7e34rgoQg0RtzcvbjH2QyM" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Συνοικία Salamanca
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="salamanca" aria-pressed="false" aria-label="Το είδα: Συνοικία Salamanca">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Συνοικία Salamanca</summary>
+                  <label for="note-salamanca" class="visually-hidden">Σημειώσεις για Συνοικία Salamanca</label>
+                  <textarea id="note-salamanca" class="note-textarea" data-note-for="salamanca" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 4. Barrio de las Letras -->
+            <li class="stop-card" data-stop-id="barrio-letras" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">20:30</span>
+                      <span class="category-badge">Ιστορική Γειτονιά &amp; Wine Bars</span>
+                    </div>
+                    <h3 class="stop-title">Barrio de las Letras</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η «Γειτονιά των Γραμμάτων» (γύρω από την Calle de las Huertas), όπου έζησαν οι μεγάλοι συγγραφείς του ισπανικού Χρυσού Αιώνα (Θερβάντες, Λόπε ντε Βέγκα). Πεζόδρομοι με λογοτεχνικά αποσπάσματα χαραγμένα στο έδαφος, ιστορικές ταβέρνες και <span lang="en">wine bars</span>.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Barrio+de+las+Letras+Madrid&amp;query_place_id=ChIJE5MzAYEoQg0RPPfbSrJKa6Y" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Barrio de las Letras
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="barrio-letras" aria-pressed="false" aria-label="Το είδα: Barrio de las Letras">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Barrio de las Letras</summary>
+                  <label for="note-barrio-letras" class="visually-hidden">Σημειώσεις για Barrio de las Letras</label>
+                  <textarea id="note-barrio-letras" class="note-textarea" data-note-for="barrio-letras" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <!-- ================================================================
+             ΗΜΕΡΑ 4: Παρασκευή 27 Νοεμβρίου
+             ================================================================ -->
+        <article class="day-section" id="day-4" data-day="day-4">
+          <header class="day-header">
+            <div>
+              <div class="day-kicker">Ημέρα 4 · Παρασκευή 27 Νοεμβρίου</div>
+              <h2 class="day-title">Άβιλα, Σεγόβια &amp; Χριστουγεννιάτικη Μαδρίτη</h2>
+            </div>
+            <div class="day-header-actions">
+              <span class="pill-badge" data-day-count="day-4">3 Στάσεις</span>
+              <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-4" aria-label="Προσθήκη δραστηριότητας στην Παρασκευή 27 Νοεμβρίου">
+                + Προσθήκη
+              </button>
+            </div>
+          </header>
+
+          <ol class="timeline-list" role="list" data-timeline-for="day-4">
+            <!-- 1. Άβιλα -->
+            <li class="stop-card" data-stop-id="avila" data-category="excursion">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">Αναχώρηση 08:15 από San Bernardo 7</span>
+                      <span class="category-badge">Ημερήσια Εκδρομή · 1ο Σκέλος</span>
+                    </div>
+                    <h3 class="stop-title">Άβιλα (Ávila)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Πόλη-μνημείο της UNESCO σε υψόμετρο 1.130 μέτρων, διάσημη για τα απόλυτα διατηρημένα μεσαιωνικά τείχη του 11ου αιώνα (μήκους 2,5 χλμ. με 88 πύργους), τη ρωμανική Βασιλική του San Vicente και το μοναστήρι της Αγίας Τερέζας.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81vila&amp;query_place_id=ChIJa0v4WxvzQA0RSq2VuQpF9sA" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Άβιλα (Ávila)
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+San+Bernardo+7+Madrid&amp;query_place_id=ChIJ2bVwY3soQg0RMjx-UHronyI" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                      Αφετηρία: San Bernardo, 7
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="avila" aria-pressed="false" aria-label="Το είδα: Άβιλα">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Άβιλα</summary>
+                  <label for="note-avila" class="visually-hidden">Σημειώσεις για Άβιλα</label>
+                  <textarea id="note-avila" class="note-textarea" data-note-for="avila" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 2. Σεγόβια -->
+            <li class="stop-card" data-stop-id="segovia" data-category="excursion">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">Δεύτερο σκέλος εκδρομής</span>
+                      <span class="category-badge">Ημερήσια Εκδρομή · 2ο Σκέλος</span>
+                    </div>
+                    <h3 class="stop-title">Σεγόβια (Segovia)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Εντυπωσιακή ιστορική πόλη με τρία κορυφαία αξιοθέατα: το Ρωμαϊκό Υδραγωγείο (1ος αι. μ.Χ., χτισμένο χωρίς καθόλου συνδετικό κονίαμα), τον ύστερο γοτθικό Καθεδρικό Ναό και το παραμυθένιο κάστρο <span lang="es">Alcázar de Segovia</span> πάνω στον βράχο (που αποτέλεσε έμπνευση για το κάστρο της Σταχτοπούτας της Disney).
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Segovia%2C+Espa%C3%B1a&amp;query_place_id=ChIJ-TIzqeY-QQ0Rt98TvyFyVlQ" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Σεγόβια (Segovia)
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="segovia" aria-pressed="false" aria-label="Το είδα: Σεγόβια">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Σεγόβια</summary>
+                  <label for="note-segovia" class="visually-hidden">Σημειώσεις για Σεγόβια</label>
+                  <textarea id="note-segovia" class="note-textarea" data-note-for="segovia" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 3. Plaza de Cibeles & Chueca -->
+            <li class="stop-card" data-stop-id="cibeles-chueca" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">19:30</span>
+                      <span class="category-badge">Βραδινή Βόλτα &amp; Συνοικία</span>
+                    </div>
+                    <h3 class="stop-title">Plaza de Cibeles &amp; Chueca</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Βραδινή βόλτα από την φωταγωγημένη Plaza de Cibeles (με το εμβληματικό σιντριβάνι και το Palacio de Cibeles) και τη Gran Vía μέχρι την κοσμοπολίτικη, ζωντανή γειτονιά Chueca.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+de+Cibeles+Madrid&amp;query_place_id=ChIJQzimtoQoQg0RqO2I0nyFVGo" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Plaza de Cibeles
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Chueca+Madrid&amp;query_place_id=ChIJ1zd1J4YoQg0RPzo0-Ojqaxc" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Chueca
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="cibeles-chueca" aria-pressed="false" aria-label="Το είδα: Plaza de Cibeles & Chueca">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Plaza de Cibeles &amp; Chueca</summary>
+                  <label for="note-cibeles-chueca" class="visually-hidden">Σημειώσεις για Plaza de Cibeles &amp; Chueca</label>
+                  <textarea id="note-cibeles-chueca" class="note-textarea" data-note-for="cibeles-chueca" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <!-- ================================================================
+             ΗΜΕΡΑ 5: Σάββατο 28 Νοεμβρίου
+             ================================================================ -->
+        <article class="day-section" id="day-5" data-day="day-5">
+          <header class="day-header">
+            <div>
+              <div class="day-kicker">Ημέρα 5 · Σάββατο 28 Νοεμβρίου</div>
+              <h2 class="day-title">Μοντέρνα Τέχνη, Παλάτι, Ηλιοβασίλεμα &amp; La Latina</h2>
+            </div>
+            <div class="day-header-actions">
+              <span class="pill-badge" data-day-count="day-5">4 Στάσεις</span>
+              <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-5" aria-label="Προσθήκη δραστηριότητας στο Σάββατο 28 Νοεμβρίου">
+                + Προσθήκη
+              </button>
+            </div>
+          </header>
+
+          <ol class="timeline-list" role="list" data-timeline-for="day-5">
+            <!-- 1. Μουσείο Reina Sofía -->
+            <li class="stop-card" data-stop-id="reina-sofia" data-category="museum">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">10:00</span>
+                      <span class="category-badge">Μουσείο Μοντέρνας Τέχνης</span>
+                    </div>
+                    <h3 class="stop-title">Μουσείο Reina Sofía</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Το εθνικό μουσείο μοντέρνας και σύγχρονης τέχνης της Ισπανίας. Φιλοξενεί την αριστουργηματική <span lang="es">Guernica</span> του Πάμπλο Πικάσο, καθώς και σημαντικές συλλογές των Σαλβαδόρ Νταλί και Ζοάν Μιρό.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Museo+Reina+Sof%C3%ADa+Madrid&amp;query_place_id=ChIJvQc62ygmQg0Rcb-6WdEUmDA" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Μουσείο Reina Sofía
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="reina-sofia" aria-pressed="false" aria-label="Το είδα: Μουσείο Reina Sofía">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Μουσείο Reina Sofía</summary>
+                  <label for="note-reina-sofia" class="visually-hidden">Σημειώσεις για Μουσείο Reina Sofía</label>
+                  <textarea id="note-reina-sofia" class="note-textarea" data-note-for="reina-sofia" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 2. Βασιλικό Ανάκτορο & Καθεδρικός της Αλμουδένα -->
+            <li class="stop-card" data-stop-id="palacio-real" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">13:30</span>
+                      <span class="category-badge">Ανάκτορο &amp; Καθεδρικός</span>
+                    </div>
+                    <h3 class="stop-title">Βασιλικό Ανάκτορο (Palacio Real) &amp; Καθεδρικός της Αλμουδένα</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Το μεγαλύτερο βασιλικό παλάτι στη Δυτική Ευρώπη (με 3.418 δωμάτια, τη Βασιλική Οπλοθήκη, το Φαρμακείο και έργα Καραβάτζιο, Γκόγια και Βελάσκεθ). Ακριβώς απέναντι υψώνεται ο Καθεδρικός Ναός της Almudena.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Palacio+Real+de+Madrid&amp;query_place_id=ChIJwamkfX4oQg0RUUjO1nnsfy4" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Βασιλικό Ανάκτορο
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+la+Almudena+Madrid&amp;query_place_id=ChIJI_FYeHcoQg0RcqwG5gDs3H8" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Καθεδρικός Αλμουδένα
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="palacio-real" aria-pressed="false" aria-label="Το είδα: Βασιλικό Ανάκτορο & Καθεδρικός της Αλμουδένα">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Βασιλικό Ανάκτορο &amp; Αλμουδένα</summary>
+                  <label for="note-palacio-real" class="visually-hidden">Σημειώσεις για Βασιλικό Ανάκτορο</label>
+                  <textarea id="note-palacio-real" class="note-textarea" data-note-for="palacio-real" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 3. Ναός του Debod -->
+            <li class="stop-card" data-stop-id="templo-debod" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">17:15 — Ηλιοβασίλεμα</span>
+                      <span class="category-badge">Μνημείο &amp; Πανοραμική Θέα</span>
+                    </div>
+                    <h3 class="stop-title">Ναός του Debod (Templo de Debod)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Αυθεντικός αρχαίος αιγυπτιακός ναός του 2ου αιώνα π.Χ. (δωρεά της Αιγύπτου στην Ισπανία), τοποθετημένος μέσα σε πάρκο με υδάτινους καθρέφτες και πανοραμική θέα προς το Βασιλικό Παλάτι.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Templo+de+Debod+Madrid&amp;query_place_id=ChIJWRLqi24oQg0RqwZ3SsbZah0" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Ναός του Debod
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="templo-debod" aria-pressed="false" aria-label="Το είδα: Ναός του Debod">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Ναός του Debod</summary>
+                  <label for="note-templo-debod" class="visually-hidden">Σημειώσεις για Ναός του Debod</label>
+                  <textarea id="note-templo-debod" class="note-textarea" data-note-for="templo-debod" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+
+            <!-- 4. Calle de la Cava Baja (La Latina) -->
+            <li class="stop-card" data-stop-id="cava-baja" data-category="food">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">20:30</span>
+                      <span class="category-badge">Γαστρονομία · Tapas Crawl</span>
+                    </div>
+                    <h3 class="stop-title">Calle de la Cava Baja (Συνοικία La Latina)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Ο πιο αυθεντικός και ιστορικός δρόμος της παλιάς Μαδρίτης για <span lang="en">tapas crawl</span> (μετακίνηση από μπαρ σε μπαρ δοκιμάζοντας από 1–2 σπεσιαλιτέ και κρασί/βερμούτ σε κάθε στάση).
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+la+Cava+Baja+Madrid&amp;query_place_id=ChIJdzxhINYnQg0RB0-G9OIDT_o" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Calle de la Cava Baja
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Latina+Madrid&amp;query_place_id=ChIJc8SAjdcnQg0RXViU5YCmRWQ" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Συνοικία La Latina
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="cava-baja" aria-pressed="false" aria-label="Το είδα: Calle de la Cava Baja">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Calle de la Cava Baja</summary>
+                  <label for="note-cava-baja" class="visually-hidden">Σημειώσεις για Calle de la Cava Baja</label>
+                  <textarea id="note-cava-baja" class="note-textarea" data-note-for="cava-baja" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <!-- ================================================================
+             ΗΜΕΡΑ 6: Κυριακή 29 Νοεμβρίου — Αναχώρηση
+             ================================================================ -->
+        <article class="day-section" id="day-6" data-day="day-6">
+          <header class="day-header">
+            <div>
+              <div class="day-kicker">Ημέρα 6 · Κυριακή 29 Νοεμβρίου</div>
+              <h2 class="day-title">Κυριακάτικο Παζάρι &amp; Επιστροφή στην Αθήνα</h2>
+            </div>
+            <div class="day-header-actions">
+              <span class="pill-badge" data-day-count="day-6">1 Στάση</span>
+              <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-6" aria-label="Προσθήκη δραστηριότητας στην Κυριακή 29 Νοεμβρίου">
+                + Προσθήκη
+              </button>
+            </div>
+          </header>
+
+          <div class="highlights-box">
+            <strong>Χρονοδιάγραμμα αναχώρησης (πτήση GQ921 στις 14:20):</strong>
+            <ul>
+              <li><strong>08:00</strong> Πρωινό στο ξενοδοχείο (περιλαμβάνεται)</li>
+              <li><strong>09:00–10:30</strong> Προαιρετικά: El Rastro (βλ. παρακάτω)</li>
+              <li><strong>11:00</strong> Check-out (έχετε μόνο χειραποσκευές)</li>
+              <li><strong>11:15</strong> Μετρό από Plaza de España: Γραμμή 10 → Nuevos Ministerios → Γραμμή 8 έως το αεροδρόμιο (~45–50'). Ελέγξτε τον τερματικό σταθμό στην κάρτα επιβίβασης: η Γραμμή 8 έχει ξεχωριστές στάσεις για T1-T2-T3 και για T4.</li>
+              <li><strong>12:15</strong> Άφιξη στο αεροδρόμιο (2 ώρες πριν)</li>
+              <li><strong>14:00</strong> Το αργότερο στην πύλη (20' πριν)</li>
+              <li><strong>14:20 → 18:45</strong> Πτήση για Αθήνα</li>
+            </ul>
+          </div>
+
+          <ol class="timeline-list" role="list" data-timeline-for="day-6">
+            <!-- 1. El Rastro -->
+            <li class="stop-card" data-stop-id="el-rastro" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">09:00 — Μόνο Κυριακή</span>
+                      <span class="category-badge">Υπαίθρια Αγορά · Προαιρετικό</span>
+                    </div>
+                    <h3 class="stop-title">El Rastro (La Latina)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η ιστορική υπαίθρια αγορά της Μαδρίτης, που στήνεται μόνο Κυριακές πρωί γύρω από την Calle de la Ribera de Curtidores: αντίκες, βινύλια, δερμάτινα και σουβενίρ. Βρίσκεται 15' από το ξενοδοχείο. Επιστρέψτε μέχρι τις 10:45 για να προλάβετε άνετα το check-out. Προσοχή στα πορτοφόλια μέσα στο πλήθος.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=El+Rastro+Madrid" target="_blank" rel="noopener noreferrer">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: El Rastro
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="el-rastro" aria-pressed="false" aria-label="Το είδα: El Rastro">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για El Rastro</summary>
+                  <label for="note-el-rastro" class="visually-hidden">Σημειώσεις για El Rastro</label>
+                  <textarea id="note-el-rastro" class="note-textarea" data-note-for="el-rastro" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+      </div>
+
+      <!-- Empty State when search/filter finds no results -->
+      <div id="empty-filter-state" class="empty-state" hidden>
+        <p>Δεν βρέθηκαν στάσεις που να ταιριάζουν με τα επιλεγμένα φίλτρα.</p>
+        <button type="button" id="clear-filters-btn" class="btn">Επαναφορά Φίλτρων</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Floating Mobile FAB for quick activity addition -->
+  <button type="button" id="mobile-fab-add" class="mobile-fab" aria-label="Προσθήκη νέας δραστηριότητας">
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+    <span>Προσθήκη</span>
+  </button>
+
+  <!-- Native Modal Dialog: Προσθήκη Νέας Δραστηριότητας -->
+  <dialog id="add-activity-dialog" class="quick-dialog" closedby="any" aria-labelledby="add-activity-title">
+    <div class="dialog-header">
+      <h2 id="add-activity-title">Προσθήκη Νέας Δραστηριότητας</h2>
+      <form method="dialog">
+        <button type="submit" class="btn btn-icon" aria-label="Κλείσιμο παραθύρου">✕</button>
+      </form>
+    </div>
+
+    <form id="add-activity-form" class="activity-form" method="post" action="#days-container" novalidate>
+      <div class="form-group">
+        <label for="activity-day" class="form-label">Ημέρα Ταξιδιού <span aria-hidden="true">*</span></label>
+        <select id="activity-day" name="day" class="form-control" required>
+          <option value="day-1">Τρίτη 24 Νοεμβρίου — Ιστορικό Κέντρο</option>
+          <option value="day-2">Τετάρτη 25 Νοεμβρίου — Τολέδο &amp; Malasaña</option>
+          <option value="day-3">Πέμπτη 26 Νοεμβρίου — Prado, Retiro &amp; Salamanca</option>
+          <option value="day-4">Παρασκευή 27 Νοεμβρίου — Άβιλα, Σεγόβια &amp; Chueca</option>
+          <option value="day-5">Σάββατο 28 Νοεμβρίου — Reina Sofía, Παλάτι &amp; La Latina</option>
+          <option value="day-6">Κυριακή 29 Νοεμβρίου — El Rastro &amp; Αναχώρηση</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="activity-title-input" class="form-label">Τίτλος Δραστηριότητας / Μέρους <span aria-hidden="true">*</span></label>
+        <input type="text" id="activity-title-input" name="title" class="form-control" required maxlength="120" enterkeyhint="next" aria-describedby="title-error" placeholder="π.χ. Μουσείο Thyssen-Bornemisza ή Rooftop Bar">
+        <span id="title-error" class="field-error" hidden>Παρακαλώ συμπληρώστε τον τίτλο της δραστηριότητας.</span>
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="activity-time-input" class="form-label">Ώρα / Χρονική Ένδειξη</label>
+          <input type="text" id="activity-time-input" name="time" class="form-control" maxlength="40" enterkeyhint="next" placeholder="π.χ. 16:30 ή Μεσημέρι">
+        </div>
+
+        <div class="form-group">
+          <label for="activity-category-input" class="form-label">Κατηγορία</label>
+          <select id="activity-category-input" name="category" class="form-control">
+            <option value="sight">Αξιοθέατα &amp; Πλατείες</option>
+            <option value="food">Γαστρονομία &amp; Tapas</option>
+            <option value="museum">Μουσεία &amp; Τέχνη</option>
+            <option value="neighborhood">Συνοικίες &amp; Βραδινή Βόλτα</option>
+            <option value="excursion">Ημερήσιες Εκδρομές</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="activity-desc-input" class="form-label">Περιγραφή / Σημειώσεις</label>
+        <textarea id="activity-desc-input" name="description" class="form-control" rows="3" maxlength="500" placeholder="Τι θέλετε να δείτε ή να δοκιμάσετε εδώ..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="activity-map-input" class="form-label">Σύνδεσμος Google Maps (προαιρετικό)</label>
+        <span id="map-hint" class="form-hint">Αν το αφήσετε κενό, θα δημιουργηθεί αυτόματα σύνδεσμος αναζήτησης Google Maps για τη Μαδρίτη.</span>
+        <input type="url" id="activity-map-input" name="mapUrl" class="form-control" aria-describedby="map-hint" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="https://www.google.com/maps/...">
+      </div>
+
+      <div class="dialog-footer">
+        <button type="button" id="cancel-add-activity-btn" class="btn">Ακύρωση</button>
+        <button type="submit" class="btn btn-primary">Αποθήκευση στο Πρόγραμμα</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Native Modal Dialog for Quick Reference on Mobile -->
+  <dialog id="quick-guide-dialog" class="quick-dialog" closedby="any" aria-labelledby="dialog-title">
+    <div class="dialog-header">
+      <h2 id="dialog-title">Κάρτα Άμεσης Πρόσβασης &amp; Εκδρομών</h2>
+      <form method="dialog">
+        <button type="submit" class="btn btn-icon" aria-label="Κλείσιμο παραθύρου">✕</button>
+      </form>
+    </div>
+    <div>
+      <p><strong>Πτήσεις SKY express:</strong> Τρι 24/11 GQ920 Αθήνα 10:30 → Μαδρίτη 13:20 · Κυρ 29/11 GQ921 Μαδρίτη 14:20 → Αθήνα 18:45. Θέσεις 26A/26B, χειραποσκευή 8 kg.</p>
+      <p><strong>Ξενοδοχείο:</strong> Dear Hotel Madrid — Gran Vía, 80 (Στάση Μετρό: <strong>Plaza de España</strong>, ακριβώς μπροστά στην είσοδο). Τηλ. <a href="tel:+34914123200">+34 914 123 200</a> · Πρωινό περιλαμβάνεται.</p>
+      <p><strong>Έκτακτη ανάγκη:</strong> <a href="tel:112">112</a></p>
+      <div class="form-group private-codes">
+        <label for="private-codes-input" class="form-label">Οι κωδικοί κράτησής μου</label>
+        <span id="private-codes-hint" class="form-hint">Αποθηκεύονται μόνο σε αυτή τη συσκευή και δεν δημοσιεύονται (π.χ. κωδικός πτήσης, κωδικός Agoda).</span>
+        <textarea id="private-codes-input" class="form-control" rows="2" aria-describedby="private-codes-hint" autocorrect="off" autocapitalize="characters" spellcheck="false" placeholder="Πτήση: …&#10;Ξενοδοχείο: …"></textarea>
+      </div>
+      <p><strong>Από Αεροδρόμιο Barajas:</strong> Γραμμή 8 (Ροζ) έως <em>Nuevos Ministerios</em> → Αλλαγή σε Γραμμή 10 (Σκούρο Μπλε) έως <em>Plaza de España</em>.</p>
+      <p><strong>Σημείο Εκκίνησης Εκδρομών (<span lang="en">Fun and Tickets</span>):</strong> Calle de San Bernardo, 7 (7 λεπτά με τα πόδια από το ξενοδοχείο).</p>
+      <ul>
+        <li><strong>Τετάρτη 25 Νοεμβρίου (08:45):</strong> Ολοήμερη Εκδρομή στο Τολέδο</li>
+        <li><strong>Παρασκευή 27 Νοεμβρίου (08:15):</strong> Ολοήμερη Εκδρομή σε Άβιλα &amp; Σεγόβια</li>
+      </ul>
+      <div class="dialog-footer">
+        <form method="dialog">
+          <button type="submit" class="btn btn-primary">Κλείσιμο</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>Οδηγός Ταξιδιού Μαδρίτης · 24–29 Νοεμβρίου · Dear Hotel Madrid (Gran Vía, 80)</p>
+    <div class="backup-row">
+      <span>Αντίγραφο ασφαλείας (σημειώσεις, επισκέψεις, δικές μου στάσεις):</span>
+      <button type="button" id="export-btn" class="btn btn-sm">Αποθήκευση αρχείου</button>
+      <label class="btn btn-sm" for="import-input">Επαναφορά από αρχείο</label>
+      <input type="file" id="import-input" accept="application/json,.json" class="visually-hidden">
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

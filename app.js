@@ -56,7 +56,7 @@
 
   const PRIVATE_CODES_STORAGE_KEY = 'madrid_private_codes_v1';
   const CHECK_LABEL_OFF = 'Το είδα';
-  const CHECK_LABEL_ON = '✓ Επισκέφθηκα';
+  const CHECK_LABEL_ON = 'Επισκέφθηκα';
 
   // Trip calendar: day id -> local date (YYYY-MM-DD)
   const TRIP_DATES = {
@@ -67,6 +67,31 @@
     'day-5': '2026-11-28',
     'day-6': '2026-11-29'
   };
+
+  // Lucide icons (lucide.dev, ISC) built with DOM APIs — no innerHTML
+  const LUCIDE = {
+    'map-pin': [['path', { d: 'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0' }], ['circle', { cx: '12', cy: '10', r: '3' }]],
+    check: [['path', { d: 'M20 6 9 17l-5-5' }]],
+    circle: [['circle', { cx: '12', cy: '12', r: '10' }]],
+    'trash-2': [['path', { d: 'M3 6h18' }], ['path', { d: 'M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6' }], ['path', { d: 'M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2' }], ['line', { x1: '10', x2: '10', y1: '11', y2: '17' }], ['line', { x1: '14', x2: '14', y1: '11', y2: '17' }]]
+  };
+
+  function lucideIcon(name, size = 16) {
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    const attrs = { class: `lucide lucide-${name}`, 'aria-hidden': 'true', width: String(size), height: String(size), viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
+    Object.entries(attrs).forEach(([k, v]) => svg.setAttribute(k, v));
+    (LUCIDE[name] || []).forEach(([tag, a]) => {
+      const el = document.createElementNS(NS, tag);
+      Object.entries(a).forEach(([k, v]) => el.setAttribute(k, v));
+      svg.appendChild(el);
+    });
+    return svg;
+  }
+
+  function setCheckButtonState(btn, isVisited) {
+    btn.replaceChildren(lucideIcon(isVisited ? 'check' : 'circle', 15), document.createTextNode(isVisited ? CHECK_LABEL_ON : CHECK_LABEL_OFF));
+  }
 
   // Lowercase + strip accents so "μουσειο" finds "Μουσείο" and "avila" finds "Ávila"
   function normalizeText(value) {
@@ -243,7 +268,7 @@
     mapLink.href = resolvedMapUrl;
     mapLink.target = '_blank';
     mapLink.rel = 'noopener noreferrer';
-    mapLink.textContent = `📍 Google Maps: ${stop.title}`;
+    mapLink.append(lucideIcon('map-pin', 14), document.createTextNode(`Google Maps: ${stop.title}`));
     mapGroup.appendChild(mapLink);
 
     const rightBtns = document.createElement('div');
@@ -255,14 +280,14 @@
     checkBtn.setAttribute('data-check-for', stop.id);
     checkBtn.setAttribute('aria-pressed', 'false');
     checkBtn.setAttribute('aria-label', `Το είδα: ${stop.title}`);
-    checkBtn.textContent = CHECK_LABEL_OFF;
+    setCheckButtonState(checkBtn, false);
     bindCheckButton(checkBtn);
 
     const deleteBtn = document.createElement('button');
     deleteBtn.type = 'button';
     deleteBtn.className = 'btn-delete-stop';
     deleteBtn.setAttribute('aria-label', `Διαγραφή δραστηριότητας: ${stop.title}`);
-    deleteBtn.textContent = 'Διαγραφή';
+    deleteBtn.append(lucideIcon('trash-2', 14), document.createTextNode('Διαγραφή'));
     deleteBtn.addEventListener('click', () => {
       if (!window.confirm(`Να διαγραφεί η δραστηριότητα «${stop.title}»;`)) return;
       removeCustomStop(stop.id);
@@ -366,7 +391,7 @@
       const id = btn.getAttribute('data-check-for');
       const isVisited = visitedSet.has(id);
       btn.setAttribute('aria-pressed', isVisited ? 'true' : 'false');
-      btn.textContent = isVisited ? CHECK_LABEL_ON : CHECK_LABEL_OFF;
+      setCheckButtonState(btn, isVisited);
     });
 
     markNextStop();

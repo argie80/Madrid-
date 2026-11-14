@@ -1614,7 +1614,7 @@ body {
   justify-content: flex-start;
 }
 .day-header::before {
-  content: counter(day);
+  content: var(--day-num, "");
   flex-shrink: 0;
   inline-size: 2.75rem;
   block-size: 2.75rem;
@@ -1872,3 +1872,40 @@ body {
   background: linear-gradient(90deg, #f59e0b, var(--brand-primary));
   border-radius: var(--radius-pill);
 }
+
+/* ==========================================================================
+   Lucide icons (lucide.dev, ISC licence)
+   ========================================================================== */
+.lucide { flex-shrink: 0; }
+.chip .lucide { inline-size: 16px; block-size: 16px; }
+.chip[aria-pressed="true"] .lucide { color: #ffffff; }
+.hero-eyebrow { display: flex; align-items: center; gap: 0.35rem; }
+.bp-path span { display: grid; place-content: center; }
+.check-btn, .btn-delete-stop { gap: 0.4rem; }
+.stop-card { --cat-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cline x1=%223%22 x2=%2221%22 y1=%2222%22 y2=%2222%22/%3E%3Cline x1=%226%22 x2=%226%22 y1=%2218%22 y2=%2211%22/%3E%3Cline x1=%2210%22 x2=%2210%22 y1=%2218%22 y2=%2211%22/%3E%3Cline x1=%2214%22 x2=%2214%22 y1=%2218%22 y2=%2211%22/%3E%3Cline x1=%2218%22 x2=%2218%22 y1=%2218%22 y2=%2211%22/%3E%3Cpolygon points=%2212 2 20 7 4 7%22/%3E%3C/svg%3E"); }
+.stop-card[data-category="sight"] { --cat-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cline x1=%223%22 x2=%2221%22 y1=%2222%22 y2=%2222%22/%3E%3Cline x1=%226%22 x2=%226%22 y1=%2218%22 y2=%2211%22/%3E%3Cline x1=%2210%22 x2=%2210%22 y1=%2218%22 y2=%2211%22/%3E%3Cline x1=%2214%22 x2=%2214%22 y1=%2218%22 y2=%2211%22/%3E%3Cline x1=%2218%22 x2=%2218%22 y1=%2218%22 y2=%2211%22/%3E%3Cpolygon points=%2212 2 20 7 4 7%22/%3E%3C/svg%3E"); }
+.stop-card[data-category="museum"] { --cat-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2213.5%22 cy=%226.5%22 r=%22.5%22 fill=%22black%22/%3E%3Ccircle cx=%2217.5%22 cy=%2210.5%22 r=%22.5%22 fill=%22black%22/%3E%3Ccircle cx=%228.5%22 cy=%227.5%22 r=%22.5%22 fill=%22black%22/%3E%3Ccircle cx=%226.5%22 cy=%2212.5%22 r=%22.5%22 fill=%22black%22/%3E%3Cpath d=%22M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z%22/%3E%3C/svg%3E"); }
+.stop-card[data-category="food"] { --cat-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M8 22h8%22/%3E%3Cpath d=%22M7 10h10%22/%3E%3Cpath d=%22M12 15v7%22/%3E%3Cpath d=%22M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z%22/%3E%3C/svg%3E"); }
+.stop-card[data-category="neighborhood"] { --cat-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z%22/%3E%3Cpath d=%22M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2%22/%3E%3Cpath d=%22M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2%22/%3E%3Cpath d=%22M10 6h4%22/%3E%3Cpath d=%22M10 10h4%22/%3E%3Cpath d=%22M10 14h4%22/%3E%3Cpath d=%22M10 18h4%22/%3E%3C/svg%3E"); }
+.stop-card[data-category="excursion"] { --cat-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M8 6v6%22/%3E%3Cpath d=%22M15 6v6%22/%3E%3Cpath d=%22M2 12h19.6%22/%3E%3Cpath d=%22M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3%22/%3E%3Ccircle cx=%227%22 cy=%2218%22 r=%222%22/%3E%3Cpath d=%22M9 18h5%22/%3E%3Ccircle cx=%2216%22 cy=%2218%22 r=%222%22/%3E%3C/svg%3E"); }
+.category-badge::before,
+.time-badge::before {
+  content: "";
+  inline-size: 13px;
+  block-size: 13px;
+  margin-inline-end: 0.3rem;
+  background-color: currentColor;
+  -webkit-mask: var(--badge-icon) center / contain no-repeat;
+  mask: var(--badge-icon) center / contain no-repeat;
+  flex-shrink: 0;
+}
+.category-badge { --badge-icon: var(--cat-icon); }
+.time-badge { --badge-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpolyline points=%2212 6 12 12 16 14%22/%3E%3C/svg%3E"); }
+
+/* Fixed day numbers (a CSS counter would renumber when days are filtered out) */
+#day-1 { --day-num: "1"; }
+#day-2 { --day-num: "2"; }
+#day-3 { --day-num: "3"; }
+#day-4 { --day-num: "4"; }
+#day-5 { --day-num: "5"; }
+#day-6 { --day-num: "6"; }

@@ -47,8 +47,8 @@
 
     <div class="progress-strip">
       <label for="trip-progress-bar" class="visually-hidden">Πρόοδος επισκέψεων</label>
-      <progress id="trip-progress-bar" class="trip-progress" value="0" max="19" style="--brand-hue: 220;"></progress>
-      <span id="progress-count-text" class="progress-count">0 / 19 στάσεις</span>
+      <progress id="trip-progress-bar" class="trip-progress" value="0" max="23" style="--brand-hue: 220;"></progress>
+      <span id="progress-count-text" class="progress-count">0 / 23 στάσεις</span>
       <div id="live-status" class="visually-hidden" aria-live="polite"></div>
       <button type="button" id="reset-progress-btn" class="btn-text">Μηδενισμός</button>
     </div>
@@ -193,6 +193,94 @@
           <p class="ref-body">Πάροχος (Fun and Tickets): <a href="tel:+34912590230">+34 912 59 02 30</a>. Στο λεωφορείο δεν υπάρχει τουαλέτα.</p>
         </section>
 
+        <!-- Πριν φύγουμε -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon" aria-hidden="true"><svg class="lucide lucide-list-checks" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></div>
+            <div>
+              <h2>Πριν φύγουμε</h2>
+              <p class="ref-subtitle">Τα σημάδια αποθηκεύονται σε αυτή τη συσκευή</p>
+            </div>
+          </div>
+          <ul class="prep-list" id="prep-list">
+            <li><label><input type="checkbox" data-prep="palace"> Εισιτήριο Βασιλικού Ανακτόρου (Σαβ 28/11, ~13:30)</label></li>
+            <li><label><input type="checkbox" data-prep="flamenco"> Κράτηση flamenco (Πεμ 26/11 βράδυ)</label></li>
+            <li><label><input type="checkbox" data-prep="prado"> Ήρθε το email με το εισιτήριο του Prado</label></li>
+            <li><label><input type="checkbox" data-prep="checkin-out"> Online check-in πτήσης (από Κυρ 22/11 10:30)</label></li>
+            <li><label><input type="checkbox" data-prep="checkin-back"> Online check-in επιστροφής (από Παρ 27/11 14:20)</label></li>
+            <li><label><input type="checkbox" data-prep="gyg-app"> Εφαρμογή GetYourGuide στο κινητό, με τα εισιτήρια</label></li>
+            <li><label><input type="checkbox" data-prep="id"> Ταυτότητες ή διαβατήρια</label></li>
+            <li><label><input type="checkbox" data-prep="bags"> Χειραποσκευή έως 8 kg</label></li>
+            <li><label><input type="checkbox" data-prep="clothes"> Μπουφάν, ομπρέλα, άνετα παπούτσια</label></li>
+            <li><label><input type="checkbox" data-prep="offline"> Η σελίδα στην αρχική οθόνη του κινητού (για χρήση χωρίς internet)</label></li>
+          </ul>
+        </section>
+
+        <!-- Πρακτικά -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon gold" aria-hidden="true"><svg class="lucide lucide-info" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+            <div>
+              <h2>Πρακτικά</h2>
+              <p class="ref-subtitle">Μετρό, φαγητό, ασφάλεια</p>
+            </div>
+          </div>
+          <ul class="tips-list">
+            <li><strong>Μετρό:</strong> αγοράστε στο μηχάνημα την επαναφορτιζόμενη κάρτα <em>Tarjeta Multi</em> και φορτώστε <strong>10 διαδρομές</strong>, μία κάρτα για τον καθένα. Από και προς το αεροδρόμιο υπάρχει επιπλέον χρέωση, που πληρώνεται στο ίδιο μηχάνημα. Επίσης δουλεύει ανέπαφη πληρωμή με κάρτα.</li>
+            <li><strong>Ώρες:</strong> οι Ισπανοί τρώνε βραδινό μετά τις 21:00. Τα μπαρ με tapas γεμίζουν 20:30–23:00.</li>
+            <li><strong>Φαγητό στον δρόμο:</strong>
+              <ul>
+                <li><em>bocadillo de calamares</em> στην Plaza Mayor</li>
+                <li><em>churros</em> το πρωί</li>
+                <li><em>bocadillo de jamón</em> σε φούρνους</li>
+                <li><em>tortilla</em> (ομελέτα με πατάτα) σε κάθε μπαρ</li>
+                <li>συχνά μια μικρή <em>tapa</em> έρχεται δωρεάν με το ποτό</li>
+              </ul></li>
+            <li><strong>Φιλοδώρημα:</strong> δεν είναι υποχρεωτικό. Αφήστε τα ψιλά ή 5–10% αν σας άρεσε.</li>
+            <li><strong>Πορτοφολάδες:</strong> προσοχή στη Sol, στη Gran Vía, στο μετρό και στο Rastro. Κινητό και πορτοφόλι όχι στην πίσω τσέπη.</li>
+            <li><strong>Νερό βρύσης:</strong> πόσιμο και καλό. Ζητήστε <em>agua del grifo</em>.</li>
+            <li><strong>Έκτακτη ανάγκη:</strong> <a href="tel:112">112</a></li>
+          </ul>
+        </section>
+
+        <!-- Καιρός -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon" aria-hidden="true"><svg class="lucide lucide-cloud-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg></div>
+            <div>
+              <h2>Καιρός τέλη Νοεμβρίου</h2>
+              <p class="ref-subtitle">Συνήθεις τιμές, όχι πρόγνωση</p>
+            </div>
+          </div>
+          <ul class="excursion-times">
+            <li><span>Μαδρίτη (ημέρα / νύχτα)</span><strong>~13° / ~4°</strong></li>
+            <li><span>Άβιλα &amp; Σεγόβια (υψόμετρο 1.000 m+)</span><strong>πιο κρύα</strong></li>
+            <li><span>Δύση ηλίου</span><strong>~17:50</strong></li>
+          </ul>
+          <p class="ref-body">Ντυθείτε με στρώσεις: μπουφάν, κασκόλ και μια μικρή ομπρέλα. Τις ημέρες των εκδρομών ντυθείτε πιο ζεστά. Ελέγξτε την πρόγνωση 2–3 ημέρες πριν φύγετε.</p>
+        </section>
+
+        <!-- Λεξιλόγιο -->
+        <section class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-icon gold" aria-hidden="true"><svg class="lucide lucide-languages" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></div>
+            <div>
+              <h2>Μικρό λεξιλόγιο</h2>
+              <p class="ref-subtitle">Ισπανικά για κάθε μέρα</p>
+            </div>
+          </div>
+          <dl class="phrase-list" lang="es">
+            <div><dt>Hola / Gracias / Por favor</dt><dd lang="el">Γεια / Ευχαριστώ / Παρακαλώ</dd></div>
+            <div><dt>La cuenta, por favor</dt><dd lang="el">Τον λογαριασμό, παρακαλώ</dd></div>
+            <div><dt>Una caña / Un vino tinto</dt><dd lang="el">Ένα μικρό βαρελίσιο / Ένα κόκκινο κρασί</dd></div>
+            <div><dt>Dos, por favor</dt><dd lang="el">Δύο, παρακαλώ</dd></div>
+            <div><dt>¿Dónde está el metro?</dt><dd lang="el">Πού είναι το μετρό;</dd></div>
+            <div><dt>¿Cuánto cuesta?</dt><dd lang="el">Πόσο κοστίζει;</dd></div>
+            <div><dt>Agua del grifo</dt><dd lang="el">Νερό βρύσης</dd></div>
+            <div><dt>¿Se puede pagar con tarjeta?</dt><dd lang="el">Μπορώ να πληρώσω με κάρτα;</dd></div>
+          </dl>
+        </section>
+
         <!-- Εισιτήρια -->
         <section class="ref-card">
           <div class="ref-card-header">
@@ -240,13 +328,13 @@
             <li>
               <button type="button" class="day-tab" data-day-filter="day-3" aria-pressed="false">
                 <span class="day-tab-date">Πέμπτη 26/11</span>
-                <span class="day-tab-name">Prado, Retiro &amp; Salamanca</span>
+                <span class="day-tab-name">Prado, Retiro &amp; Flamenco</span>
               </button>
             </li>
             <li>
               <button type="button" class="day-tab" data-day-filter="day-4" aria-pressed="false">
                 <span class="day-tab-date">Παρασκευή 27/11</span>
-                <span class="day-tab-name">Άβιλα, Σεγόβια &amp; Chueca</span>
+                <span class="day-tab-name">Άβιλα, Σεγόβια &amp; Ταράτσα</span>
               </button>
             </li>
             <li>
@@ -299,7 +387,7 @@
               <h2 class="day-title">Πρώτη Επαφή με το Ιστορικό Κέντρο</h2>
             </div>
             <div class="day-header-actions">
-              <span class="pill-badge" data-day-count="day-1">5 Στάσεις</span>
+              <span class="pill-badge" data-day-count="day-1">6 Στάσεις</span>
               <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-1" aria-label="Προσθήκη δραστηριότητας στην Τρίτη 24 Νοεμβρίου">
                 + Προσθήκη
               </button>
@@ -394,6 +482,9 @@
                 <p class="stop-description">
                   Η επιβλητική κλειστή πλατεία του 17ου αιώνα με τις 237 μπαλκονόπορτες και τις ιστορικές αψίδες.
                 </p>
+                <div class="highlights-box">
+                  <strong>Φαγητό στον δρόμο:</strong> <span lang="es"><em>bocadillo de calamares</em></span> (ψωμί με τηγανητά καλαμαράκια), το κλασικό φτηνό σνακ της Μαδρίτης, από τα μπαράκια στις καμάρες της πλατείας. Θα το βρείτε συνήθως με λίγα ευρώ.
+                </div>
                 <div class="stop-actions">
                   <div class="map-links-group">
                     <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+Mayor+Madrid&amp;query_place_id=ChIJZX56134oQg0RHBgRAVQ8pkk" target="_blank" rel="noopener noreferrer">
@@ -426,7 +517,7 @@
                   </div>
                 </div>
                 <p class="stop-description">
-                  Κλειστή σιδηροκατασκευαστική αγορά του 1916 δίπλα στην Plaza Mayor, ιδανική για δοκιμή ισπανικών <span lang="es">tapas</span>, θαλασσινών, <span lang="es">jamón ibérico</span> και τοπικών κρασιών.
+                  Κλειστή σιδηροκατασκευαστική αγορά του 1916 δίπλα στην Plaza Mayor, ιδανική για δοκιμή ισπανικών <span lang="es">tapas</span>, θαλασσινών, <span lang="es">jamón ibérico</span> και τοπικών κρασιών. Είναι τουριστική και ακριβή, οπότε καλύτερα για μια μπουκιά και ένα ποτό παρά για κανονικό βραδινό.
                 </p>
                 <div class="stop-actions">
                   <div class="map-links-group">
@@ -477,6 +568,39 @@
                   <summary>Προσωπικές σημειώσεις για Chocolatería San Ginés</summary>
                   <label for="note-san-gines" class="visually-hidden">Σημειώσεις για Chocolatería San Ginés</label>
                   <textarea id="note-san-gines" class="note-textarea" data-note-for="san-gines" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
+          <!-- 6. Ταράτσα ξενοδοχείου -->
+            <li class="stop-card" data-stop-id="rooftop-hotel" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">~22:30</span>
+                      <span class="category-badge">Ταράτσα με θέα</span>
+                    </div>
+                    <h3 class="stop-title">Ταράτσα του ξενοδοχείου (Nice to Meet You, 14ος όροφος)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Κλείσιμο της πρώτης βραδιάς με ένα ποτό στην πανοραμική ταράτσα 360° του Dear Hotel, με θέα στη φωτισμένη Gran Vía, την Plaza de España και το Βασιλικό Παλάτι. Πριν βγείτε, ρωτήστε στη ρεσεψιόν μέχρι τι ώρα είναι ανοιχτή.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Dear+Hotel+Madrid+Gran+V%C3%ADa+80" target="_blank" rel="noopener noreferrer">
+                      <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Dear Hotel Madrid
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="rooftop-hotel" aria-pressed="false" aria-label="Το είδα: Ταράτσα του ξενοδοχείου (Nice to Meet You, 14ος όροφος)">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Ταράτσα του ξενοδοχείου (Nice to Meet You, 14ος όροφος)</summary>
+                  <label for="note-rooftop-hotel" class="visually-hidden">Σημειώσεις για Ταράτσα του ξενοδοχείου (Nice to Meet You, 14ος όροφος)</label>
+                  <textarea id="note-rooftop-hotel" class="note-textarea" data-note-for="rooftop-hotel" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
                 </details>
               </div>
             </li>
@@ -594,10 +718,10 @@
           <header class="day-header">
             <div>
               <div class="day-kicker">Ημέρα 3 · Πέμπτη 26 Νοεμβρίου</div>
-              <h2 class="day-title">Τέχνη, Πάρκα &amp; Αριστοκρατικές Συνοικίες</h2>
+              <h2 class="day-title">Τέχνη, Retiro &amp; Βράδυ με Flamenco</h2>
             </div>
             <div class="day-header-actions">
-              <span class="pill-badge" data-day-count="day-3">4 Στάσεις</span>
+              <span class="pill-badge" data-day-count="day-3">5 Στάσεις</span>
               <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-3" aria-label="Προσθήκη δραστηριότητας στην Πέμπτη 26 Νοεμβρίου">
                 + Προσθήκη
               </button>
@@ -680,40 +804,42 @@
               </div>
             </li>
 
-            <!-- 3. Συνοικία Salamanca -->
-            <li class="stop-card" data-stop-id="salamanca" data-category="neighborhood">
+            <!-- 3. Thyssen (προαιρετικό) -->
+            <li class="stop-card" data-stop-id="thyssen" data-category="museum">
               <div class="stop-card-inner">
                 <div class="stop-header-row">
                   <div>
                     <div class="stop-meta-badges">
-                      <span class="time-badge">15:30</span>
-                      <span class="category-badge">Αριστοκρατική Συνοικία</span>
+                      <span class="time-badge">15:00</span>
+                      <span class="category-badge">Μουσείο Τέχνης</span><span class="optional-badge">Προαιρετικό</span>
                     </div>
-                    <h3 class="stop-title">Συνοικία Salamanca</h3>
+                    <h3 class="stop-title">Μουσείο Thyssen-Bornemisza</h3>
                   </div>
                 </div>
                 <p class="stop-description">
-                  Η πιο κομψή και αριστοκρατική περιοχή της Μαδρίτης (γύρω από την Calle de Serrano), με φαρδιές λεωφόρους, κτίρια του 19ου αιώνα και προσεγμένα εστιατόρια.
+                  Το τρίτο μεγάλο μουσείο της Μαδρίτης, απέναντι από το Prado. Η συλλογή του πάει από την Αναγέννηση έως τον ιμπρεσιονισμό και την pop art (Βαν Γκογκ, Μονέ, Χόπερ, Λιχτενστάιν), οπότε συμπληρώνει όσα δεν έχει το Prado. Αν είστε κουρασμένοι από το πρωί, παραλείψτε το και μείνετε περισσότερο στο Retiro.
                 </p>
+                <div class="highlights-box">
+                  <strong>Φαγητό στον δρόμο:</strong> ανάμεσα σε Retiro και Thyssen, ένα <span lang="es"><em>bocadillo</em></span> ή μια <span lang="es"><em>empanada</em></span> από φούρνο της περιοχής. Αν θέλετε κάτι πιο αθλητικό, εναλλακτικά υπάρχει ξενάγηση στο γήπεδο Santiago Bernabéu (μετρό L10, κλείστε εισιτήριο online).
+                </div>
                 <div class="stop-actions">
                   <div class="map-links-group">
-                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Barrio+de+Salamanca+Madrid&amp;query_place_id=ChIJJ7e34rgoQg0RtzcvbjH2QyM" target="_blank" rel="noopener noreferrer">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Museo+Thyssen-Bornemisza+Madrid" target="_blank" rel="noopener noreferrer">
                       <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-                      Google Maps: Συνοικία Salamanca
+                      Google Maps: Museo Thyssen-Bornemisza
                     </a>
                   </div>
-                  <button type="button" class="check-btn" data-check-for="salamanca" aria-pressed="false" aria-label="Το είδα: Συνοικία Salamanca">
+                  <button type="button" class="check-btn" data-check-for="thyssen" aria-pressed="false" aria-label="Το είδα: Μουσείο Thyssen-Bornemisza">
                     Το είδα
                   </button>
                 </div>
                 <details class="note-details">
-                  <summary>Προσωπικές σημειώσεις για Συνοικία Salamanca</summary>
-                  <label for="note-salamanca" class="visually-hidden">Σημειώσεις για Συνοικία Salamanca</label>
-                  <textarea id="note-salamanca" class="note-textarea" data-note-for="salamanca" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                  <summary>Προσωπικές σημειώσεις για Μουσείο Thyssen-Bornemisza</summary>
+                  <label for="note-thyssen" class="visually-hidden">Σημειώσεις για Μουσείο Thyssen-Bornemisza</label>
+                  <textarea id="note-thyssen" class="note-textarea" data-note-for="thyssen" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
                 </details>
               </div>
             </li>
-
             <!-- 4. Barrio de las Letras -->
             <li class="stop-card" data-stop-id="barrio-letras" data-category="neighborhood">
               <div class="stop-card-inner">
@@ -747,6 +873,42 @@
                 </details>
               </div>
             </li>
+          <!-- 5. Flamenco -->
+            <li class="stop-card" data-stop-id="flamenco" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">22:00 · κράτηση</span>
+                      <span class="category-badge">Βραδινή Παράσταση</span><span class="need-badge">Χρειάζεται κράτηση</span>
+                    </div>
+                    <h3 class="stop-title">Παράσταση flamenco (tablao)</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η κλασική βραδινή εμπειρία της Μαδρίτης: ζωντανή κιθάρα, τραγούδι και χορός σε μικρή αίθουσα (<span lang="es">tablao</span>). Τα περισσότερα tablao έχουν 2–3 παραστάσεις κάθε βράδυ, περίπου 1 ώρα η καθεμία. Για να μη χρειαστεί δείπνο εκεί, διαλέξτε <strong>εισιτήριο μόνο με ποτό</strong>.
+                </p>
+                <div class="highlights-box">
+                  <strong>Πού:</strong> υπάρχουν αρκετά tablao στο κέντρο, κοντά στη Sol και στο Barrio de las Letras, για να το συνδυάσετε με τη βόλτα. Συγκρίνετε κριτικές και κλείστε από πριν, γιατί τα καλά γεμίζουν.
+                </div>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=tablao+flamenco+Madrid" target="_blank" rel="noopener noreferrer">
+                      <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Tablao flamenco κοντά
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="flamenco" aria-pressed="false" aria-label="Το είδα: Παράσταση flamenco (tablao)">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Παράσταση flamenco (tablao)</summary>
+                  <label for="note-flamenco" class="visually-hidden">Σημειώσεις για Παράσταση flamenco (tablao)</label>
+                  <textarea id="note-flamenco" class="note-textarea" data-note-for="flamenco" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
           </ol>
         </article>
 
@@ -757,10 +919,10 @@
           <header class="day-header">
             <div>
               <div class="day-kicker">Ημέρα 4 · Παρασκευή 27 Νοεμβρίου</div>
-              <h2 class="day-title">Άβιλα, Σεγόβια &amp; Χριστουγεννιάτικη Μαδρίτη</h2>
+              <h2 class="day-title">Άβιλα, Σεγόβια &amp; η Μαδρίτη από Ψηλά</h2>
             </div>
             <div class="day-header-actions">
-              <span class="pill-badge" data-day-count="day-4">3 Στάσεις</span>
+              <span class="pill-badge" data-day-count="day-4">4 Στάσεις</span>
               <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-4" aria-label="Προσθήκη δραστηριότητας στην Παρασκευή 27 Νοεμβρίου">
                 + Προσθήκη
               </button>
@@ -843,26 +1005,66 @@
               </div>
             </li>
 
+            <!-- 3. Círculo de Bellas Artes -->
+            <li class="stop-card" data-stop-id="circulo-azotea" data-category="sight">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">19:00</span>
+                      <span class="category-badge">Ταράτσα με Θέα</span>
+                    </div>
+                    <h3 class="stop-title">Ταράτσα Círculo de Bellas Artes</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Η πιο διάσημη πανοραμική ταράτσα της πόλης, στην αρχή της Gran Vía. Από εκεί φαίνεται η φωτισμένη Metrópolis, η Cibeles και όλο το κέντρο. Η είσοδος έχει μικρό αντίτιμο και θα βρείτε μπαρ για ένα ποτό. Μετρό: Banco de España.
+                </p>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Azotea+C%C3%ADrculo+de+Bellas+Artes+Madrid" target="_blank" rel="noopener noreferrer">
+                      <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Círculo de Bellas Artes
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="circulo-azotea" aria-pressed="false" aria-label="Το είδα: Ταράτσα Círculo de Bellas Artes">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Ταράτσα Círculo de Bellas Artes</summary>
+                  <label for="note-circulo-azotea" class="visually-hidden">Σημειώσεις για Ταράτσα Círculo de Bellas Artes</label>
+                  <textarea id="note-circulo-azotea" class="note-textarea" data-note-for="circulo-azotea" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
             <!-- 3. Plaza de Cibeles & Chueca -->
             <li class="stop-card" data-stop-id="cibeles-chueca" data-category="neighborhood">
               <div class="stop-card-inner">
                 <div class="stop-header-row">
                   <div>
                     <div class="stop-meta-badges">
-                      <span class="time-badge">19:30</span>
+                      <span class="time-badge">20:00</span>
                       <span class="category-badge">Βραδινή Βόλτα &amp; Συνοικία</span>
                     </div>
                     <h3 class="stop-title">Plaza de Cibeles &amp; Chueca</h3>
                   </div>
                 </div>
                 <p class="stop-description">
-                  Βραδινή βόλτα από την φωταγωγημένη Plaza de Cibeles (με το εμβληματικό σιντριβάνι και το Palacio de Cibeles) και τη Gran Vía μέχρι την κοσμοπολίτικη, ζωντανή γειτονιά Chueca.
+                  Κατεβαίνοντας από την ταράτσα, βόλτα στη φωταγωγημένη Plaza de Cibeles, με το σιντριβάνι και το Palacio de Cibeles, και μετά στη ζωντανή γειτονιά Chueca. Για φτηνό και γρήγορο βραδινό υπάρχει η αγορά <strong>Mercado de San Antón</strong>, με πάγκους φαγητού.
                 </p>
+                <div class="highlights-box">
+                  <strong>Παρασκευή 27/11 είναι Black Friday:</strong> στη Gran Vía και στα μαγαζιά θα έχει πολύ κόσμο. Μετά από 9ωρη εκδρομή, αν είστε κουρασμένοι, κρατήστε μόνο την ταράτσα και γυρίστε στο ξενοδοχείο (10' με τα πόδια).
+                </div>
                 <div class="stop-actions">
                   <div class="map-links-group">
                     <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+de+Cibeles+Madrid&amp;query_place_id=ChIJQzimtoQoQg0RqO2I0nyFVGo" target="_blank" rel="noopener noreferrer">
                       <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
                       Google Maps: Plaza de Cibeles
+                    </a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mercado+de+San+Ant%C3%B3n+Madrid" target="_blank" rel="noopener noreferrer">
+                      <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Mercado de San Antón
                     </a>
                     <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Chueca+Madrid&amp;query_place_id=ChIJ1zd1J4YoQg0RPzo0-Ojqaxc" target="_blank" rel="noopener noreferrer">
                       <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
@@ -893,7 +1095,7 @@
               <h2 class="day-title">Μοντέρνα Τέχνη, Παλάτι, Ηλιοβασίλεμα &amp; La Latina</h2>
             </div>
             <div class="day-header-actions">
-              <span class="pill-badge" data-day-count="day-5">4 Στάσεις</span>
+              <span class="pill-badge" data-day-count="day-5">5 Στάσεις</span>
               <button type="button" class="btn btn-sm btn-add-day" data-add-to-day="day-5" aria-label="Προσθήκη δραστηριότητας στο Σάββατο 28 Νοεμβρίου">
                 + Προσθήκη
               </button>
@@ -945,7 +1147,7 @@
                   <div>
                     <div class="stop-meta-badges">
                       <span class="time-badge">13:30</span>
-                      <span class="category-badge">Ανάκτορο &amp; Καθεδρικός</span>
+                      <span class="category-badge">Ανάκτορο &amp; Καθεδρικός</span><span class="need-badge">Χρειάζεται κράτηση</span>
                     </div>
                     <h3 class="stop-title">Βασιλικό Ανάκτορο (Palacio Real) &amp; Καθεδρικός της Αλμουδένα</h3>
                   </div>
@@ -953,6 +1155,9 @@
                 <p class="stop-description">
                   Το μεγαλύτερο βασιλικό παλάτι στη Δυτική Ευρώπη (με 3.418 δωμάτια, τη Βασιλική Οπλοθήκη, το Φαρμακείο και έργα Καραβάτζιο, Γκόγια και Βελάσκεθ). Ακριβώς απέναντι υψώνεται ο Καθεδρικός Ναός της Almudena.
                 </p>
+                <div class="highlights-box">
+                  <strong>⚠ Δεν έχετε ακόμα εισιτήριο.</strong> Το Σάββατο έχει πολύ κόσμο, οπότε κλείστε από πριν εισιτήριο με ώρα στην επίσημη σελίδα του Patrimonio Nacional. Το παλάτι κλείνει πού και πού για επίσημες εκδηλώσεις, οπότε ελέγξτε και τη μέρα. Ο Καθεδρικός της Almudena είναι δωρεάν, αλλά καλό είναι να αφήσετε μια μικρή δωρεά.<br><a class="inline-link" href="https://tickets.patrimonionacional.es/" target="_blank" rel="noopener noreferrer">Επίσημα εισιτήρια Palacio Real →</a>
+                </div>
                 <div class="stop-actions">
                   <div class="map-links-group">
                     <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Palacio+Real+de+Madrid&amp;query_place_id=ChIJwamkfX4oQg0RUUjO1nnsfy4" target="_blank" rel="noopener noreferrer">
@@ -1010,6 +1215,42 @@
               </div>
             </li>
 
+            <!-- 4. Χριστουγεννιάτικη αγορά -->
+            <li class="stop-card" data-stop-id="mercado-navidad" data-category="neighborhood">
+              <div class="stop-card-inner">
+                <div class="stop-header-row">
+                  <div>
+                    <div class="stop-meta-badges">
+                      <span class="time-badge">19:30</span>
+                      <span class="category-badge">Χριστουγεννιάτικη Μαδρίτη</span>
+                    </div>
+                    <h3 class="stop-title">Χριστουγεννιάτικη αγορά Plaza Mayor &amp; φώτα</h3>
+                  </div>
+                </div>
+                <p class="stop-description">
+                  Οι ξύλινοι πάγκοι με στολίδια, φάτνες και τα αστεία καπέλα-περούκες στήνονται κάθε χρόνο στην Plaza Mayor. Από εκεί ακολουθήστε τα χριστουγεννιάτικα φώτα στην Calle Mayor και την Calle Preciados μέχρι τη Sol. Η Cava Baja είναι 3 λεπτά πιο κάτω.
+                </p>
+                <div class="highlights-box">
+                  <strong>Ημερομηνίες:</strong> η αγορά και το άναμμα των φώτων ξεκινούν συνήθως στα τέλη Νοεμβρίου. Πριν πάτε, επιβεβαιώστε ότι έχουν ξεκινήσει.
+                </div>
+                <div class="stop-actions">
+                  <div class="map-links-group">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+Mayor+Madrid" target="_blank" rel="noopener noreferrer">
+                      <svg class="lucide lucide-map-pin" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Google Maps: Plaza Mayor
+                    </a>
+                  </div>
+                  <button type="button" class="check-btn" data-check-for="mercado-navidad" aria-pressed="false" aria-label="Το είδα: Χριστουγεννιάτικη αγορά Plaza Mayor &amp; φώτα">
+                    Το είδα
+                  </button>
+                </div>
+                <details class="note-details">
+                  <summary>Προσωπικές σημειώσεις για Χριστουγεννιάτικη αγορά Plaza Mayor &amp; φώτα</summary>
+                  <label for="note-mercado-navidad" class="visually-hidden">Σημειώσεις για Χριστουγεννιάτικη αγορά Plaza Mayor &amp; φώτα</label>
+                  <textarea id="note-mercado-navidad" class="note-textarea" data-note-for="mercado-navidad" placeholder="Προσθέστε σημείωση (αποθηκεύεται αυτόματα)..."></textarea>
+                </details>
+              </div>
+            </li>
             <!-- 4. Calle de la Cava Baja (La Latina) -->
             <li class="stop-card" data-stop-id="cava-baja" data-category="food">
               <div class="stop-card-inner">
@@ -1148,8 +1389,8 @@
         <select id="activity-day" name="day" class="form-control" required>
           <option value="day-1">Τρίτη 24 Νοεμβρίου — Ιστορικό Κέντρο</option>
           <option value="day-2">Τετάρτη 25 Νοεμβρίου — Τολέδο &amp; Malasaña</option>
-          <option value="day-3">Πέμπτη 26 Νοεμβρίου — Prado, Retiro &amp; Salamanca</option>
-          <option value="day-4">Παρασκευή 27 Νοεμβρίου — Άβιλα, Σεγόβια &amp; Chueca</option>
+          <option value="day-3">Πέμπτη 26 Νοεμβρίου — Prado, Retiro &amp; Flamenco</option>
+          <option value="day-4">Παρασκευή 27 Νοεμβρίου — Άβιλα, Σεγόβια &amp; Ταράτσα</option>
           <option value="day-5">Σάββατο 28 Νοεμβρίου — Reina Sofía, Παλάτι &amp; La Latina</option>
           <option value="day-6">Κυριακή 29 Νοεμβρίου — El Rastro &amp; Αναχώρηση</option>
         </select>

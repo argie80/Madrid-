@@ -1966,3 +1966,103 @@ body {
   font-size: 0.75rem;
 }
 .ref-body a { color: var(--brand-primary-hover); }
+
+/* Optional / needs-booking badges */
+.optional-badge,
+.need-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding-block: 0.2rem;
+  padding-inline: 0.6rem;
+  border-radius: var(--radius-pill);
+}
+.optional-badge {
+  background-color: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1px dashed var(--border-control);
+}
+.need-badge {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+.inline-link {
+  display: inline-block;
+  margin-block-start: 0.35rem;
+  font-weight: 700;
+  color: var(--brand-primary-hover);
+}
+
+/* Prep checklist */
+.prep-list,
+.tips-list {
+  list-style: none;
+  margin-block: 0.5rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+.prep-list label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding-block: 0.4rem;
+  padding-inline: 0.55rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.prep-list label:hover {
+  background-color: var(--bg-subtle);
+}
+.prep-list input {
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+  margin-block-start: 0.1rem;
+  flex-shrink: 0;
+  accent-color: #15803d;
+}
+.prep-list input:checked + * ,
+.prep-list label:has(input:checked) {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.tips-list > li {
+  padding-block: 0.4rem;
+  border-block-end: 1px solid var(--border-card);
+  color: var(--text-secondary);
+}
+.tips-list > li:last-child {
+  border-block-end: none;
+}
+.tips-list ul {
+  margin-block: 0.25rem 0;
+  padding-inline-start: 1.1rem;
+}
+
+/* Phrasebook */
+.phrase-list {
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.phrase-list > div {
+  padding-block: 0.4rem;
+  padding-inline: 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: #fffaf4;
+  border: 1px solid var(--border-card);
+}
+.phrase-list dt {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+.phrase-list dd {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}

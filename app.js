@@ -55,6 +55,7 @@
   const titleError = document.getElementById('title-error');
 
   const PRIVATE_CODES_STORAGE_KEY = 'madrid_private_codes_v1';
+  const PREP_STORAGE_KEY = 'madrid_prep_checklist_v1';
   const CHECK_LABEL_OFF = 'Το είδα';
   const CHECK_LABEL_ON = 'Επισκέφθηκα';
 
@@ -798,6 +799,38 @@
   }
 
   // ------------------------------------------------------------------
+  // "Πριν φύγουμε" checklist (per device)
+  // ------------------------------------------------------------------
+  const prepBoxes = Array.from(document.querySelectorAll('[data-prep]'));
+
+  function loadPrep() {
+    try {
+      return JSON.parse(localStorage.getItem(PREP_STORAGE_KEY) || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function syncPrepUI(list) {
+    const done = new Set(list);
+    prepBoxes.forEach((box) => {
+      box.checked = done.has(box.getAttribute('data-prep'));
+    });
+  }
+
+  function savePrep() {
+    const done = prepBoxes.filter((b) => b.checked).map((b) => b.getAttribute('data-prep'));
+    try {
+      localStorage.setItem(PREP_STORAGE_KEY, JSON.stringify(done));
+    } catch {
+      // ignore
+    }
+  }
+
+  syncPrepUI(loadPrep());
+  prepBoxes.forEach((box) => box.addEventListener('change', savePrep));
+
+  // ------------------------------------------------------------------
   // Backup: export / import notes, visited stops, custom stops, codes
   // ------------------------------------------------------------------
   const exportBtn = document.getElementById('export-btn');
@@ -818,7 +851,8 @@
         visited: Array.from(visitedSet),
         notes: notesMap,
         customStops,
-        privateCodes
+        privateCodes,
+        prep: loadPrep()
       };
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -853,6 +887,15 @@
         saveVisited();
         saveNotes();
         saveCustomStops();
+        if (Array.isArray(data.prep)) {
+          const prep = data.prep.map(String);
+          try {
+            localStorage.setItem(PREP_STORAGE_KEY, JSON.stringify(prep));
+          } catch {
+            // ignore
+          }
+          syncPrepUI(prep);
+        }
         if (typeof data.privateCodes === 'string') {
           try {
             localStorage.setItem(PRIVATE_CODES_STORAGE_KEY, data.privateCodes);
